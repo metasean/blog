@@ -1,0 +1,80 @@
+JS Learners' Fieldguide
+=======================
+
+## Background
+
+In the spring of 2014 I decided I needed a change and decided I wanted to become a JavaScript full stack programmer.  I started attending [UtahJS] meetups in the Salt Lake City area.  Early that summer there was a UtahJS Conference.  While attending I met another novice JS developer.  We were both really happy to see each other at the next UtahJS meetup.  After that meetup, we were talking about how hard it was to learn code in isolation, and thus was born the SLC JS Learners' group.
+
+Since that fateful day, the SLC JS Learners' group has grown to more than 600 members, and I've gotten a lot of novices up and running.  The following resources are the things biggest things I share with my fellow learners.
+
+
+## JavaScript
+
+### Start Here
+
+http://www.freecodecamp.com/[Free Code Camp] is the the one JavaScript resource that I can't recommend highly enough for Learners!  It (a) assumes no knowledge coming in, (b) provides a linear progression from no knowledge to a portfolio of web applications, (c) lets you move as fast or slow as you want, (d) lets you skip lessons and topics you're already familiar with, and (e) has phenomenal online support.  
+
+In late 2015, they did change the site design, making the skip process less intuitive - to skip lessons, open your "Map" and click on the lesson you would like to complete.
+
+Another great resource for any novice and junior developer is http://www.codenewbie.org/[Code Newbie].  It's more about the social and networking aspects of entering the programming world.  They have a bunch of different things including a pretty active forum and a blog.  They also do a weekly podcast, which is really good (but remember, if it comes down to listening to a podcast OR working through freeCodeCamp - CODE!) They also have a learning resources section, but it's mostly bootcamps that require money or being on location for many consecutive weeks, or resources that simply aren't as comprehensive, and learner-friendly as freeCodeCamp.  (freeCodeCamp really is the best resource I've seen for learning in a guided, thorough, and progressive way!)
+
+### A Glimpse of What's Happening
+
+Once you start actually coding in JavaScript, you will likely start to wonder what is happening under the hood.  To get a glimpse, I recommend running your code through the http://pythontutor.com/javascript.html#mode=edit[JavaScript version of the PythonTutor].   
+
+### Dive Deep
+
+Once you've gotten through the "Basic JavaScript" exercise 
+
+https://www.udemy.com/understand-javascript/[Anthony Alicea’s "JavaScript: Understanding the Weird Parts"] dives deep into the workings of JavaScripts. Where Free Code Camp will help you understand how to make web applications, 'The Weird Parts' will help you understand why JavaScript does what it does.
+
+Make sure to check http://www.retailmenot.com/view/udemy.com[Retail Me Not] for current discounts (there’s almost always one!)
+
+If you haven't already started using http://pythontutor.com/javascript.html#mode=edit[JavaScript version of the PythonTutor], now is a perfect time to do so!
+
+
+
+### Adventures in JavaScript Land
+
+When you're starting to feel confident in the basics and need a bit of a change of pace (primary focus should still be on progressing through freeCodeCamp!) the following are great places to play and practice what you're learning:
+
+* http://www.codewars.com/[CodeWars] - You can start playing with CodeWars after about the first 1/4 of freeCodeCamp's "Basic JavaScript" exercises (about 16 hours into their series, but that assumes absolutely _no_ prior knowledge, if you have any then you'll fly through it faster than that!).
+        
+* I'd hold off playing around with the rest until you've finished at least the freeCodeCamp's "Basic JavaScript" exercises (by their estimates, another 8 hours or so).  And —_coming from experience_— don't let them distract you from actually moving forward on your primary goals!
+** http://codekata.com/
+** http://nodeschool.io/#workshopper-list
+** https://projecteuler.net/
+** http://play.elevatorsaga.com/
+** http://alexnisnevich.github.io/untrusted/
+** https://github.com/olistic/warriorjs
+** http://fightcodegame.com/
+        
+### Editors
+
+I've had a lot of novices ask about editors.  Developers tend to develop strong preferences, so you should be comfortable working with any editor.  That said, here are some that I've used.
+
+
+#### Simple Online Editors 
+- http://jsbin.com/?js,console,output[JS Bin] - My favorite cloud editor for small programs.
+- http://plnkr.co/[Plunker] - If I'm going to have multiple files but it isn't a full blown project, this is my go to cloud editor.
+- http://codepen.io/[CodePen] - if you're working on CSS, SVG, animations, or anything particularly visual, this is the place to play!
+- https://jsfiddle.net/[JS Fiddle] - Frequently used, but their most recent redesign makes it so hard to read that I go out of my way to avoid it now!
+
+There's also a https://en.wikipedia.org/w/index.php?title=Comparison_of_online_source_code_playgrounds[Comparison of online source code playgrounds] on Wikipedia.
+
+## Online IDEs  
+- https://c9.io[Cloud9] - If I'm working on a project with someone else and we want to work in the cloud, this is where I turn.  The one caveat is that it currently does not support git branches, i.e. you can only edit the master branch.
+
+
+
+
+### GitHub vs GitLab
+
+As you're learning JavaScript, and pretty much any other modern open-source programming language, you'll see a lot of projects and whatnot on GitHub (I'm pretty sure freeCodeCamp now encourages you to get an account before you even start coding).  It is still the go-to for most open-source projects, but for personal projects I much prefer, and strongly recommend, gitlab.com.  Pretty much anything that GitHub does, GitLab does plus GitLab does a lot more (for example, allowing you to have private projects for free).  I'm MetaSean on both (https://github.com/metasean ; https://gitlab.com/u/metasean).  I look like I'm more active on GitHub only because of things I do with projects already hosted there and because I have private repos on GitLab and you won't see my activity on those ('cause private). 
+
+
+### miscellaneous
+
+DuckDuckGo !bangs - in the search bar on https://duckduckgo.com/ press "!" (without the quotes) and it will show you the most popular !bangs as well as a link to a very, very, very long list of all the available !bangs (did I mention they have a lot of !bangs!)
+
+Hopefully that helps you get rockin' and codin'!
