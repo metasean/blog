@@ -47,7 +47,6 @@ Make sure to check http://www.retailmenot.com/view/udemy.com[Retail Me Not] for 
 If you haven't already started using http://pythontutor.com/javascript.html#mode=edit[JavaScript version of the PythonTutor], now is a perfect time to do so!
 
 
-
 ### Adventures in JavaScript Land
 
 When you're starting to feel confident in the basics and need a bit of a change of pace (primary focus should still be on progressing through freeCodeCamp!) the following are great places to play and practice what you're learning:
@@ -68,7 +67,12 @@ I'd hold off playing around with the rest until you've finished at least the fre
 ## Miscellaneous
 ### Editors
 
-I've had a lot of novices ask about editors.  Developers tend to develop strong preferences, so you should be comfortable working with any editor.  That said, here are some that I've used.
+I've had a lot of novices ask about editors.  Developers tend to develop strong preferences, so you should be comfortable working with any editor.  That said, here are some thoughts on editors.
+
+
+### Learn to Love Your Console
+
+TIP: One thing I've noticed about senior developers is the propensity to turn to their https://developer.mozilla.org/en-US/docs/Tools/Web_Console[web console].  It's still something I'm working on, but if you can do something in the console, you should consider doing that instead of using a full-blown editor.  
 
 #### Cross-Platform Applications
 http://www.sublimetext.com/[Sublime]:: 
@@ -93,10 +97,7 @@ https://c9.io[Cloud9]:: If I'm working on a project with someone else and we wan
 
 ### CSS
 
-While HTML and CSS are not JavaScript, if you're using JavaScript, theres a good chance you'll also need to use HTML and CSS.  CSS is an interesting markup language and is pretty powerful in its own right.  If you want to have some fun learning about CSS3 or FlexBox (a subset of CSS3), than I highly recommend you play:
-
-* at the https://flukeout.github.io/[CSS Diner]
-* with http://flexboxfroggy.com/[Flexbox Froggy]
+While HTML and CSS are not JavaScript, if you're using JavaScript then there's a good chance you'll also need to use HTML and CSS.  CSS is an interesting markup language and is pretty powerful in its own right.  If you want to have some fun learning about CSS3 or FlexBox (a subset of CSS3), than I highly recommend you checkout the https://flukeout.github.io/[CSS Diner] and http://flexboxfroggy.com/[Flexbox Froggy].
 
 ### TDD
 
@@ -124,6 +125,10 @@ https://duckduckgo.com/[DuckDuckGo (DDG)] !bangs - I love DDG for many different
 
 Why am I including this, because there is a bang to search MDN! - "`<search term/s> !mdn`"  
 
+## Play
+
 Hopefully that helps you get rockin' and codin'!  
 
-And if you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, just look for events with "Learners'" in the name, and you will be among friends and fellow JavaSript adventurers!
+If you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, just look for events with "Learners'" in the name, and you will be among friends and fellow JavaSript adventurers!
+
+Until next time, have some fun playing with JavaScript!
