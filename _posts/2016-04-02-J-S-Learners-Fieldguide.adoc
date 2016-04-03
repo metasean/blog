@@ -13,7 +13,9 @@ Since that fateful day, the SLC JS Learners' group has grown to more than 600 me
 
 ### Start Here
 
-#*http://www.freecodecamp.com/[Free Code Camp] is the the one JavaScript resource that I can't recommend highly enough for Learners!*#  It:
+#*_http://www.freecodecamp.com/[Free Code Camp] is the the one JavaScript resource that I can't recommend highly enough for Learners!_*#  
+
+It:
 [loweralpha]
 . Assumes no knowledge coming in.
 . Provides a linear progression from no knowledge to a portfolio of web applications.
@@ -25,14 +27,14 @@ In late 2015, they did change the site design, making the skip process less intu
 
 Another great resource for any novice and junior developer is http://www.codenewbie.org/[Code Newbie].  It's more about the social and networking aspects of entering the programming world.  They have a bunch of different things including a pretty active forum and a blog.  They also do a weekly podcast, which is really good (but remember, if it comes down to listening to a podcast OR working through freeCodeCamp - CODE!) They also have a learning resources section, but it's mostly bootcamps that require money or being on location for many consecutive weeks, or resources that simply aren't as comprehensive, and learner-friendly as freeCodeCamp.  (freeCodeCamp really is the best resource I've seen for learning in a guided, thorough, and progressive way!)
 
-### goto Reference
+### The goto Reference
 
 https://developer.mozilla.org/en-US/[Mozilla Developer Network (MDN)] is the best definitive JavaScript reference.  As a novice, it can be overwhelming.  I encourage you to continue referencing it as you make your way through FreeCodeCamp and other resources.  Bit by bit, you will start to "grok" the MDN documents and come to love them.
 
 p.s. `goto` is a common command in many programming languages, and is a reserved word in JavaScript.  To get an idea of community acceptance of `goto`, check out https://www.xkcd.com/292/[xkcd: goto].
 
 
-### A Glimpse of What's Happening
+### Glimpse Under the Hood
 
 Once you start actually coding in JavaScript, you will likely start to wonder what is happening under the hood.  To get a glimpse, I recommend running your code through the http://pythontutor.com/javascript.html#mode=edit[JavaScript version of the PythonTutor].   
 
@@ -106,15 +108,15 @@ Test-Driven Development is a wonderful thing, but as a novice it can be overwhel
 
 ### Framework of the Moment
 
-You will run into Javascript frameworks left and right during your JavaScript adventures (e.g. Angular, React, Meteor, Aurelia, Ember, Backbone, Vue).  Don't spend time learning them until you've got the basics down or absolutely need to use a specific library (e.g. for a job).  Developing proficiency in core JavaScript will get you further than proficiency in a particular framework but lacking proficiency in core JavaScript.
+You will run into Javascript frameworks left and right during your JavaScript adventures (e.g. Angular, React, Meteor, Aurelia, Ember, Backbone, Vue).  _Don't_ spend time learning them until you've got the basics down or absolutely need to use a specific library (e.g. for a job).  Developing proficiency in core JavaScript will get you further than proficiency in a particular framework but lacking proficiency in core JavaScript.
 
 
 
 ### GitHub vs GitLab
 
-As you're learning JavaScript, and pretty much any other modern open-source programming languages, you'll see a lot of projects and whatnot on GitHub (I'm pretty sure freeCodeCamp now encourages you to get an account before you even start coding).  
+As you're learning JavaScript, and pretty much any other modern open-source programming languages, you'll see a lot of projects and what not on GitHub (I'm pretty sure freeCodeCamp now encourages you to get an account before you even start coding).  
 
-GitHub is still the go-to for most open-source projects, but for personal projects I much prefer and strongly recommend, https://gitlab.com[gitlab.com].  Pretty much anything that GitHub does, GitLab does plus GitLab does a lot more (for example, allowing you to have private projects for free).  The important caveat is that private projects on GitLab are, well, private.  In other words, you won't be building up a highly visible trail of code.  If you're looking for a job, then a trail of code is something that employers can reference, just like a portfolio.
+https://github.com[GitHub] is the go-to for most open-source projects, but for personal projects I much prefer and strongly recommend, https://gitlab.com[GitLab].  Pretty much anything that GitHub does GitLab does, plus GitLab does a lot more (for example, allowing you to have private projects for free).  The important caveat is that private projects on GitLab are, well, private.  In other words, you won't be building up a highly visible trail of code.  If you're looking for a job, then a trail of code is something that employers can reference, just like a portfolio.
 
 I'm MetaSean on both (https://github.com/metasean ; https://gitlab.com/u/metasean).  I look like I'm more active on GitHub only because of things I do with projects already hosted there and because I have private repos on GitLab and so you won't see my activity on those ('cause private). 
 
@@ -123,12 +125,12 @@ I'm MetaSean on both (https://github.com/metasean ; https://gitlab.com/u/metasea
 
 https://duckduckgo.com/[DuckDuckGo (DDG)] !bangs - I love DDG for many different reasons, one of which is their !bangs.  !bangs are basically shortcuts for different sites, resource types, and a handful of other things.  In a DDG search bar you can press "!" (without the quotes) and it will show you the most popular !bangs as well as a link to a very, very, very long list of all the available !bangs (did I mention they have a lot of !bangs!)
 
-Why am I including this, because there is a bang to search MDN! - "`<search term/s> !mdn`"  
+Why am I including this? Because there is a bang to search MDN! - "`<search term/s> !mdn`"  
 
 ## Play
 
 Hopefully that helps you get rockin' and codin'!  
 
-If you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, just look for events with "Learners'" in the name, and you will be among friends and fellow JavaSript adventurers!
+If you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, attend events with "Learners'" in the name, and know you are among friends and fellow JavaSript adventurers!
 
-Until next time, have some fun playing with JavaScript!
+Until next time, have some fun exploring JavaScript Land!
