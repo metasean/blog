@@ -67,6 +67,9 @@ I'd hold off playing around with the rest until you've finished at least the fre
         
 
 ## Miscellaneous
+
+In your JavaScript adventures you will explore and use many other tools and technologies.  The following are some common themes and thoughts for your journey.
+
 ### Editors
 
 I've had a lot of novices ask about editors.  Developers tend to develop strong preferences, so you should be comfortable working with any editor.  That said, here are some thoughts on editors.
@@ -78,7 +81,7 @@ TIP: One thing I've noticed about senior developers is the propensity to turn to
 
 #### Cross-Platform Applications
 http://www.sublimetext.com/[Sublime]:: 
-This is my current go to editor.  It's not open source, but it does have a great eco-system of modules.  A license is $70, but it is worth noting that a license isn't _necessary_ for Sublime 2.
+This is my current go to editor.  It's not open source, but it does have a great ecosystem of modules.  A license is $70, but it is worth noting that a license isn't _necessary_ for Sublime 2.
 https://atom.io/[Atom]::
 I haven't used it yet, but a fellow JS developer I know has come to love it.  I'll get around to trying it one day, but if you're just starting, this is probably a great place to start.
 http://www.vim.org/[Vim]::
@@ -133,4 +136,4 @@ Hopefully that helps you get rockin' and codin'!
 
 If you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, attend events with "Learners'" in the name, and know you are among friends and fellow JavaSript adventurers!
 
-Until next time, have some fun exploring JavaScript Land!
+Until next time, have fun exploring JavaScript Land!
