@@ -6,14 +6,20 @@ JS Learners' Fieldguide
 
 In the spring of 2014 I decided I needed a change and decided I wanted to become a JavaScript full stack programmer.  I started attending [UtahJS] meetups in the Salt Lake City area.  Early that summer there was a UtahJS Conference.  While attending I met another novice JS developer.  We were both really happy to see each other at the next UtahJS meetup.  After that meetup, we were talking about how hard it was to learn code in isolation, and thus was born the SLC JS Learners' group.
 
-Since that fateful day, the SLC JS Learners' group has grown to more than 600 members, and I've gotten a lot of novices up and running.  The following resources are the things biggest things I share with my fellow learners.
+Since that fateful day, the SLC JS Learners' group has grown to more than 600 members, so big we're actually merging into the UtahJS group, and I've gotten a lot of novices up and running!  The following resources are the things I most frequently share with my fellow learners.
 
 
 ## JavaScript
 
 ### Start Here
 
-http://www.freecodecamp.com/[Free Code Camp] is the the one JavaScript resource that I can't recommend highly enough for Learners!  It (a) assumes no knowledge coming in, (b) provides a linear progression from no knowledge to a portfolio of web applications, (c) lets you move as fast or slow as you want, (d) lets you skip lessons and topics you're already familiar with, and (e) has phenomenal online support.  
+#*http://www.freecodecamp.com/[Free Code Camp] is the the one JavaScript resource that I can't recommend highly enough for Learners!*#  It:
+[loweralpha]
+. Assumes no knowledge coming in.
+. Provides a linear progression from no knowledge to a portfolio of web applications.
+. Lets you move as fast or slow as you want.
+. Lets you skip lessons and topics you're already familiar with.
+. Has phenomenal online support.  
 
 In late 2015, they did change the site design, making the skip process less intuitive - to skip lessons, open your "Map" and click on the lesson you would like to complete.
 
@@ -32,7 +38,7 @@ Once you start actually coding in JavaScript, you will likely start to wonder wh
 
 ### Dive Deep
 
-Once you've gotten through the "Basic JavaScript" exercise 
+Once you've gotten through the "Basic JavaScript" exercise, I recommend you start to learn more about how JavaScript works "under the hood".
 
 https://www.udemy.com/understand-javascript/[Anthony Alicea’s "JavaScript: Understanding the Weird Parts"] dives deep into the workings of JavaScripts. Where Free Code Camp will help you understand how to make web applications, 'The Weird Parts' will help you understand why JavaScript does what it does.
 
@@ -58,6 +64,8 @@ I'd hold off playing around with the rest until you've finished at least the fre
 * https://github.com/olistic/warriorjs
 * http://fightcodegame.com/
         
+
+## Miscellaneous
 ### Editors
 
 I've had a lot of novices ask about editors.  Developers tend to develop strong preferences, so you should be comfortable working with any editor.  That said, here are some that I've used.
@@ -110,10 +118,12 @@ GitHub is still the go-to for most open-source projects, but for personal projec
 I'm MetaSean on both (https://github.com/metasean ; https://gitlab.com/u/metasean).  I look like I'm more active on GitHub only because of things I do with projects already hosted there and because I have private repos on GitLab and so you won't see my activity on those ('cause private). 
 
 
-### Miscellaneous
+### Quack, Quack
 
-https://duckduckgo.com/[DuckDuckGo (DDG)] !bangs - In the DDG search bar you can press "!" (without the quotes) and it will show you the most popular !bangs as well as a link to a very, very, very long list of all the available !bangs (did I mention they have a lot of !bangs!)
+https://duckduckgo.com/[DuckDuckGo (DDG)] !bangs - I love DDG for many different reasons, one of which is their !bangs.  !bangs are basically shortcuts for different sites, resource types, and a handful of other things.  In a DDG search bar you can press "!" (without the quotes) and it will show you the most popular !bangs as well as a link to a very, very, very long list of all the available !bangs (did I mention they have a lot of !bangs!)
 
 Why am I including this, because there is a bang to search MDN! - "`<search term/s> !mdn`"  
 
-Hopefully that helps you get rockin' and codin'!
+Hopefully that helps you get rockin' and codin'!  
+
+And if you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, just look for events with "Learners'" in the name, and you will be among friends and fellow JavaSript adventurers!
