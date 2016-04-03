@@ -2,6 +2,8 @@ JS Learners' Fieldguide
 =======================
 :hp-tags: JavaScript, HTML, CSS, Resources, Recommendations, Learners'
 
+:toc:
+
 ## Background
 
 In the spring of 2014 I decided I needed a change and decided I wanted to become a JavaScript full stack programmer.  I started attending [UtahJS] meetups in the Salt Lake City area.  Early that summer there was a UtahJS Conference.  While attending I met another novice JS developer.  We were both really happy to see each other at the next UtahJS meetup.  After that meetup, we were talking about how hard it was to learn code in isolation, and thus was born the SLC JS Learners' group.
