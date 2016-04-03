@@ -19,9 +19,11 @@ In late 2015, they did change the site design, making the skip process less intu
 
 Another great resource for any novice and junior developer is http://www.codenewbie.org/[Code Newbie].  It's more about the social and networking aspects of entering the programming world.  They have a bunch of different things including a pretty active forum and a blog.  They also do a weekly podcast, which is really good (but remember, if it comes down to listening to a podcast OR working through freeCodeCamp - CODE!) They also have a learning resources section, but it's mostly bootcamps that require money or being on location for many consecutive weeks, or resources that simply aren't as comprehensive, and learner-friendly as freeCodeCamp.  (freeCodeCamp really is the best resource I've seen for learning in a guided, thorough, and progressive way!)
 
-### GoTo Reference
+### goto Reference
 
 https://developer.mozilla.org/en-US/[Mozilla Developer Network (MDN)] is the best definitive JavaScript reference.  As a novice, it can be overwhelming.  I encourage you to continue referencing it as you make your way through FreeCodeCamp and other resources.  Bit by bit, you will start to "grok" the MDN documents and come to love them.
+
+p.s. `goto` is a common command in many programming languages, and is a reserved word in JavaScript.  To get an idea of community acceptance of `goto`, check out https://www.xkcd.com/292/[xkcd: goto].
 
 
 ### A Glimpse of What's Happening
@@ -83,8 +85,19 @@ https://c9.io[Cloud9]:: If I'm working on a project with someone else and we wan
 
 ### CSS
 
-Sean add in CSS Diner and Flexbox Froggy
+While HTML and CSS are not JavaScript, if you're using JavaScript, theres a good chance you'll also need to use HTML and CSS.  CSS is an interesting markup language and is pretty powerful in its own right.  If you want to have some fun learning about CSS3 or FlexBox (a subset of CSS3), than I highly recommend you play:
 
+* at the https://flukeout.github.io/[CSS Diner]
+* with http://flexboxfroggy.com/[Flexbox Froggy]
+
+### TDD
+
+Test-Driven Development is a wonderful thing, but as a novice it can be overwhelming.  I encourage Learners' to start practicing TDD when they start working through http://codekata.com/[CodeKata].  It has it's own flavor of TDD, but the principals will carry over to other TDD libraries.  Writing your own tests for CodeKatas helps you work through the principals of TDD.
+
+
+### Framework of the Moment
+
+You will run into Javascript frameworks left and right during your JavaScript adventures (e.g. Angular, React, Meteor, Aurelia, Ember, Backbone, Vue).  Don't spend time learning them until you've got the basics down or absolutely need to use a specific library (e.g. for a job).  Developing proficiency in core JavaScript will get you further than proficiency in a particular framework but lacking proficiency in core JavaScript.
 
 
 
