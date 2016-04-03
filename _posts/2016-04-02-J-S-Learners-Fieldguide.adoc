@@ -15,15 +15,14 @@ Since that fateful day, the SLC JS Learners' group has grown to more than 600 me
 
 #*_http://www.freecodecamp.com/[Free Code Camp] is the the one JavaScript resource that I can't recommend highly enough for Learners!_*#  
 
-It:
 [loweralpha]
-. Assumes no knowledge coming in.
-. Provides a linear progression from no knowledge to a portfolio of web applications.
-. Lets you move as fast or slow as you want.
-. Lets you skip lessons and topics you're already familiar with.
-. Has phenomenal online support.  
+. It assumes absolutely no knowledge coming in.
+. It provides a linear progression from no knowledge to a portfolio of web applications.
+. It's online nature lets you move as fast or slow as you want.
+. You can skip lessons and topics that you're already familiar with.
+. The community provides *phenomenal* online support.  
 
-In late 2015, they did change the site design, making the skip process less intuitive - to skip lessons, open your "Map" and click on the lesson you would like to complete.
+In late 2015, they did change the site design, making the skip process less intuitive.  To skip lessons, open your "Map" and click on the lesson you would like to complete.
 
 Another great resource for any novice and junior developer is http://www.codenewbie.org/[Code Newbie].  It's more about the social and networking aspects of entering the programming world.  They have a bunch of different things including a pretty active forum and a blog.  They also do a weekly podcast, which is really good (but remember, if it comes down to listening to a podcast OR working through freeCodeCamp - CODE!) They also have a learning resources section, but it's mostly bootcamps that require money or being on location for many consecutive weeks, or resources that simply aren't as comprehensive, and learner-friendly as freeCodeCamp.  (freeCodeCamp really is the best resource I've seen for learning in a guided, thorough, and progressive way!)
 
@@ -111,7 +110,7 @@ Test-Driven Development is a wonderful thing, but as a novice it can be overwhel
 
 ### Framework of the Moment
 
-You will run into Javascript frameworks left and right during your JavaScript adventures (e.g. Angular, React, Meteor, Aurelia, Ember, Backbone, Vue).  _Don't_ spend time learning them until you've got the basics down or absolutely need to use a specific library (e.g. for a job).  Developing proficiency in core JavaScript will get you further than proficiency in a particular framework but lacking proficiency in core JavaScript.
+You will run into Javascript frameworks left and right during your JavaScript adventures (e.g. Angular, React, Meteor, Aurelia, Ember, Backbone, Vue).  _Don't_ spend time learning them until you've got the basics down or absolutely need to use a specific library (e.g. for a job).  Learning core JavaScript will allow you to quickly get up to speed on any framework, while learning specific frameworks without a corresponding knowledge of core JavaScript will limit you to the specific, and frequently ephemeral, frameworks you've learned.
 
 
 
@@ -134,6 +133,6 @@ Why am I including this? Because there is a bang to search MDN! - "`<search term
 
 Hopefully that helps you get rockin' and codin'!  
 
-If you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, attend events with "Learners'" in the name, and know you are among friends and fellow JavaSript adventurers!
+If you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, attend events with "Learners'" in the name, and know you are among friends and fellow JavaScript adventurers!
 
 Until next time, have fun exploring JavaScript Land!
