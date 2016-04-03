@@ -135,4 +135,4 @@ Hopefully that helps you get rockin' and codin'!
 
 If you're in the Salt Lake City area, come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, attend events with "Learners'" in the name, and know you are among friends and fellow JavaScript adventurers!
 
-Until next time, have fun exploring JavaScript Land!
+Until next time, have fun exploring JavaScript Land! 
