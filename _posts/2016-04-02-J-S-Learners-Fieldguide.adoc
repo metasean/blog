@@ -48,7 +48,7 @@ You can start playing with Codewars after about the first 1/4 of freeCodeCamp's 
 
 My first recommendation is that when you do a kata, you spend almost as much time reviewing and understanding the other solutions as you do developing your own solution.    
 
-My second recommendation is that when you learn something new, whether it be through Free Code Camp, a previous kata, a personal projector, or anywhere else, that you find related katas and work through one a day until you feel comfortable with that topic. 
+My second recommendation is that when you learn something new, whether it be through Free Code Camp, a previous kata, a personal project, or anywhere else, that you find related katas and work through one a day until you feel comfortable with that topic. 
 
 For example, I kept running into RegEx solutions in katas, but hadn't really done a lot with RegEx up to that point.  So I found a http://regexone.com/[great online RegEx tutorial (RegexOne)]. After I finished it, I made a point to work through RegEx related katas, starting at 8kyu (even though I'm rated above that) and worked through one or two a day.  In the course of that, I also noticed a lot of ES6 arrow functions in "Best Practice" solutions, so I started adding in more ES6 solutions. (I'm particularly proud of http://www.codewars.com/kata/reviews/54a5ae9674ff017dc500001d/groups/5700a6ee70ce0e0b93000e53[my "Unlimited Sum" solution].)  
 
