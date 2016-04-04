@@ -8,7 +8,7 @@ JS Learners' Fieldguide
 
 In the spring of 2014 I decided I needed a change and decided I wanted to become a JavaScript full stack programmer.  I started attending [UtahJS] meetups in the Salt Lake City area.  Early that summer there was a UtahJS Conference.  While attending I met another novice JS developer.  We were both really happy to see each other at the next UtahJS meetup.  After that meetup, we were talking about how hard it was to learn code in isolation, and thus was born the SLC JS Learners' group.
 
-Since that fateful day, the SLC JS Learners' group has grown to more than 600 members, so big we're actually merging into the UtahJS group, and I've gotten a lot of novices up and running!  The following resources are the things I most frequently share with my fellow learners.
+Since that fateful day, the SLC JS Learners' group has grown to more than 600 members, so big we're actually merging into the UtahJS group, and I've gotten a lot of novices up and running!  The following resources are the things I most frequently share with my fellow learners.  
 
 
 ## JavaScript
@@ -39,6 +39,20 @@ p.s. `goto` is a common command in many programming languages, and is a reserved
 
 Once you start actually coding in JavaScript, you will likely start to wonder what is happening under the hood.  To get a glimpse, I recommend running your code through the http://pythontutor.com/javascript.html#mode=edit[JavaScript version of the PythonTutor].   
 
+
+### Deliberate Practice
+
+The one big complaint I have about Free Code Camp, is that it doesn't encourage deliberate practice.  Once you have the basics down, I strongly encourage Learners to start working on http://web.archive.org/web/20160325150306/http://codekata.com/kata/kata-kumite-koan-and-dreyfus/[code katas].  The best site I've found for katas is http://www.codewars.com/r/pD88uA[Codewars].
+
+You can start playing with Codewars after about the first 1/4 of freeCodeCamp's "Basic JavaScript" exercises (about 16 hours into their series, which assumes absolutely _no_ prior knowledge, if you have any then you'll move through it faster than that!).
+
+My first recommendation is that when you do a kata, you spend almost as much time reviewing and understanding the other solutions as you do developing your own solution.    
+
+My second recommendation is that when you learn something new, whether it be through Free Code Camp, a previous kata, a personal projector, or anywhere else, that you find related katas and work through one a day until you feel comfortable with that topic. 
+
+For example, I kept running into RegEx solutions in katas, but hadn't really done a lot with RegEx up to that point.  So I found a http://regexone.com/[great online RegEx tutorial (RegexOne)]. After I finished it, I made a point to work through RegEx related katas, starting at 8kyu (even though I'm rated above that) and worked through one or two a day.  In the course of that, I also noticed a lot of ES6 arrow functions in "Best Practice" solutions, so I started adding in more ES6 solutions. (I'm particularly proud of http://www.codewars.com/kata/reviews/54a5ae9674ff017dc500001d/groups/5700a6ee70ce0e0b93000e53[my "Unlimited Sum" solution].)  
+
+
 ### Dive Deep
 
 Once you've gotten through the "Basic JavaScript" exercise, I recommend you start to learn more about how JavaScript works "under the hood".
@@ -52,19 +66,22 @@ If you haven't already started using http://pythontutor.com/javascript.html#mode
 
 ### Adventures in JavaScript Land
 
-When you're starting to feel confident in the basics and need a bit of a change of pace (primary focus should still be on progressing through freeCodeCamp!) the following are great places to play and practice what you're learning:
+When you're starting to feel confident in the basics and need a bit of a change of pace (*your primary focus should still be on progressing through freeCodeCamp!*) there are many great places to play and practice what you're learning:
 
-http://www.codewars.com/[CodeWars] - You can start playing with CodeWars after about the first 1/4 of freeCodeCamp's "Basic JavaScript" exercises (about 16 hours into their series, but that assumes absolutely _no_ prior knowledge, if you have any then you'll fly through it faster than that!).
-        
-I'd hold off playing around with the rest until you've finished at least the freeCodeCamp's "Basic JavaScript" exercises (by their estimates, another 8 hours or so).  And —_coming from experience_— don't let them distract you from actually moving forward on your primary goals!
+I'd hold off playing around with them until you've finished at least the freeCodeCamp's "Basic JavaScript" exercises (by their estimates, another 8 hours or so).  And —_coming from experience_— don't let them distract you from actually moving forward on your primary goals!
 
-* http://codekata.com/
 * http://nodeschool.io/#workshopper-list
 * https://projecteuler.net/
 * http://play.elevatorsaga.com/
 * http://alexnisnevich.github.io/untrusted/
 * https://github.com/olistic/warriorjs
 * http://fightcodegame.com/
+
+
+
+### Framework of the Moment
+
+You will run into Javascript frameworks left and right during your JavaScript adventures (e.g. Angular, React, Meteor, Aurelia, Ember, Backbone, Vue).  _Don't_ spend time learning them until you've got the basics down or absolutely need to use a specific library (e.g. for a job).  Learning core JavaScript will allow you to quickly get up to speed on any framework, while learning specific frameworks without a corresponding knowledge of core JavaScript will limit you to the specific, and frequently ephemeral, frameworks you've learned.
         
 
 ## Miscellaneous
@@ -108,11 +125,6 @@ While HTML and CSS are not JavaScript, if you're using JavaScript then there's a
 ### TDD
 
 Test-Driven Development is a wonderful thing, but as a novice it can be overwhelming.  I encourage Learners' to start practicing TDD when they start working through http://codekata.com/[CodeKata].  It has it's own flavor of TDD, but the principals will carry over to other TDD libraries.  Writing your own tests for CodeKatas helps you work through the principals of TDD.
-
-
-### Framework of the Moment
-
-You will run into Javascript frameworks left and right during your JavaScript adventures (e.g. Angular, React, Meteor, Aurelia, Ember, Backbone, Vue).  _Don't_ spend time learning them until you've got the basics down or absolutely need to use a specific library (e.g. for a job).  Learning core JavaScript will allow you to quickly get up to speed on any framework, while learning specific frameworks without a corresponding knowledge of core JavaScript will limit you to the specific, and frequently ephemeral, frameworks you've learned.
 
 
 
