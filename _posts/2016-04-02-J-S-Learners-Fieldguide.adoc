@@ -159,7 +159,7 @@ Why am I including this? Because there is a bang to search MDN! - "`<search term
 
 [quote, J. R. R. Tolkien, 'https://en.wikipedia.org/wiki/All_that_is_gold_does_not_glitter["All That is Gold Does Not Glitter"]']
 ____
-Not all those who wander are lost.
+Not all those who wander are not lost.
 ____
 
 
