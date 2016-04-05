@@ -1,6 +1,6 @@
 Readability of Code
 ===================
-:hp-tags: Learners', Coding, JavaScript
+:hp-tags: Learners, Coding, JavaScript
 
 :toc:
 
