@@ -3,3 +3,78 @@ Readability of Code
 :hp-tags: Learners', Coding, JavaScript
 
 :toc:
+
+One of the biggest challenges I've had learning JavaScript is how to keep my code readable.
+
+I have learned a little bit that might help my fellow Learners.
+
+NOTE: Seasoned opinions frequently have strong opinions.  I've come to realize this is in part because of their own experience with the actual code, and part of it is because they had to defend their own opinions to their senior developers who had strong opinions.  The first reason is why *I'm* making the following statements.  If you choose to go in a different direction that's fine —to a point— just remember ...
+
+____
+Code is like jokes, if you have to explain it it's http://tvtropes.org/pmwiki/pmwiki.php/Main/DontExplainTheJoke[bad].
+____
+
+## Comments
+
+There are two strong camps on comments in code.  The "code should document itself" camp believes that the code should be so clear and unambiguous that you should never need comments.  The other camp believes that anything that might have any ambiguity or surrounding context should be thoroughly commented.
+
+I'm in another camp, we can call it the "humans ain't computers" camp.  Specifically, I believe in 2 types of comments: action comments & dialog comments.
+
+### Action Comments
+
+Action comments are pretty unambiguous.  The are the all-caps action words that many IDEs include, things like `TODO` and `BUG`.  They're easy to search for, pretty noticeable in code that I've read, and ideally will be gone before deployment.  Typically even people that tend toward the self-document camp don't mind action comments.
+
+### Dialog Comments
+
+Dialog comments are where things get hairy.  In my experience there's a range of dialog comments.  Before I dive into that, think of dialog comments as your part of a dialog with a future programmer.  That future programmer could be you tomorrow, or you in a decade, or another programmer who inherits your project once you've moved onto a bigger and better project.
+
+So why am I advocating for a range of dialog comments and what exactly is encompassed within this range?  First, let's look at some actual comments.
+
+
+JSDocs' Example::
++
+[code,javascript]
+----
+/**
+ * Represents a book.
+ * @constructor
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
+ */
+function Book(title, author) {
+}
+----
++
+The JSDocs' example is clearly geared toward documentation, but it highlights one end of the dialog range.  Specifically, this type of comment is geared toward any and all future users of the code.  
+
+http://www.codewars.com/kata/reviews/55ea551eab15716d04000007/groups/55ea8b8dfc6afa1f2d0000a8[Codewar - "heggeleggleggo"] - http://www.codewars.com/users/GaurangTandon[GaurangTandon], http://www.codewars.com/users/testtest123[testtest123] (*slightly reformated*)::
++
+[code,javascript]
+----
+/*
+1. since input string has only alphabets and spaces,
+   any character which is not a vowel or a space would be a consonant
+   we check this by `[^aeiou ]`; we then capture this by ([^aeiou ])
+2. `gi` flag introduces a global, case-insensitive check
+3. $1 in the replacement string refers to consonant we had captured before for more, refer: 
+   https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+*/
+---- 
++
+GaurangTandon and testtest123's "heggeleggleggo" example is the other end of the range.  It is basically explaining the code in a bit of depth.  Having worked around programmers for a while, I was really hesitant to put comments like this in my code - and it took me longer to level up as a result!  These types of comments serve several pedagogical purposes.  First, they help the learner restate the solution.  The more perspectives we can take of something we're learning - the better.  Second, when we inevitably forget some aspect, we have an easy explanation.  As a learner progresses past the novice stage for a given topic, then these comments should dwindle.
+
+https://www.freecodecamp.com/challenges/exact-change[Free Code Camp - "exact-change"] - pair-programming solution::
++
+[code,javascript]
+----
+var fpe = 100; // Part of the floating point error solution, as is the Math.round for change
+----
++
+[code,javascript]
+----
+// ChangeReturn equals either all of the type or just what we need 
+var changeReturn = (changeGoal > val) ? changeReturn = val/fpe : changeReturn = changeGoal/fpe;
+----
++
+As we level up, we need less and less of the learner level comments.  But sometimes we still encounter novel concepts.  In the case of our Free Code Camp example, the three of us working on the code could comfortably "read" the rest of the code, but there were two things that were causing some discomfort.  One was the whole http://www.techradar.com/news/computing/why-computers-suck-at-maths-644771/1[floating point error] solution.  In this case it was important that the people involved have the phrase "floating point error" for future reference, and a small reminder about the parts of the program that were there to solve that specific problem.  The other area of discomfort was with how we we deciding to give back a specific denominations worth of change (e.g. 50¢ in quarters).  In this case, the code was clear to all of us, but the logic behind it wasn't, so it seemed appropriate to leave a note to our future selves reminding us of the logic.
+

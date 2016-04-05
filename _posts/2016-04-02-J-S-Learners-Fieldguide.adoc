@@ -8,7 +8,7 @@ JS Learners' Fieldguide
 
 In the spring of 2014 I decided I needed a change and decided I wanted to become a JavaScript full stack programmer.  I started attending [UtahJS] meetups in the Salt Lake City area.  Early that summer there was a UtahJS Conference.  While attending I met another novice JS developer.  We were both really happy to see each other at the next UtahJS meetup.  After that meetup, we were talking about how hard it was to learn code in isolation, and thus was born the SLC JS Learners' group.
 
-Since that fateful day, the SLC JS Learners' group has grown to more than 600 members, so big we're actually merging into the UtahJS group, and I've gotten a lot of novices up and running!  The following resources are the things I most frequently share with my fellow learners.  
+Since that fateful day, the SLC JS Learners' group has grown to more than 600 members, so big we're actually merging into the UtahJS group, but it also means I've helped get a lot of novices up and running!  The following resources are the things I most frequently share with my fellow learners.  
 
 
 ## JavaScript
@@ -51,6 +51,18 @@ My first recommendation is that when you do a kata, you spend almost as much tim
 My second recommendation is that when you learn something new, whether it be through Free Code Camp, a previous kata, a personal project, or anywhere else, that you find related katas and work through one a day until you feel comfortable with that topic. 
 
 For example, I kept running into RegEx solutions in katas, but hadn't really done a lot with RegEx up to that point.  So I found a http://regexone.com/[great online RegEx tutorial (RegexOne)]. After I finished it, I made a point to work through RegEx related katas, starting at 8kyu (even though I'm rated above that) and worked through one or two a day.  In the course of that, I also noticed a lot of ES6 arrow functions in "Best Practice" solutions, so I started adding in more ES6 solutions. (I'm particularly proud of http://www.codewars.com/kata/reviews/54a5ae9674ff017dc500001d/groups/5700a6ee70ce0e0b93000e53[my "Unlimited Sum" solution].)  
+
+### The Power of Peers
+
+I'll be posting a fuller article on this topic in the near future.  For the time being, I'll simply say that pair-programming, mentoring, and code reviews (e.g. via Codewars' solutions) are as important as more solo resources like the exercises, code katas, or reference materials.  
+
+Frustratingly, several times when I've shared this I've heard references to "competition is demotivating" (https://github.com/FreeCodeCamp/FreeCodeCamp/issues/1212[one example]).  
+
+_Pair-programming, mentoring, and reviews of common code absolutely should  not be competitions!_  Among other things, they should be opportunities to communicate what a learner thinks they understand, to see alternative implementations, to deconstruct and figure out what they don't understand, and ask questions of a fellow learner or mentor - _all without judgment_.  Each of these activities augments learning in important ways.
+
+If you are a learner and you sense competition or judgment from someone that you are pairing with, you should emphasize that you do not desire to competitively engage in these activities.  If you can, provide specific examples of the undesirable behavior that you felt this person engaged in and discuss alternative ways to interact with one another.  If your peer or mentor doesn't understand this, or is incapable of accommodating this perspective - _find someone else to work with!_
+
+
 
 
 ### Dive Deep
@@ -99,7 +111,7 @@ TIP: One thing I've noticed about senior developers is the propensity to turn to
 
 #### Cross-Platform Applications
 http://www.sublimetext.com/[Sublime]:: 
-This is my current go to editor.  It's not open source, but it does have a great ecosystem of modules.  A license is $70, but it is worth noting that a license isn't _necessary_ for Sublime 2.
+This is my current go to editor.  While it's not open source, it does have a great ecosystem of modules.  A license is $70, but it is worth noting that a license isn't _necessary_ for Sublime 2.
 https://atom.io/[Atom]::
 I haven't used it yet, but a fellow JS developer I know has come to love it.  I'll get around to trying it one day, but if you're just starting, this is probably a great place to start.
 http://www.vim.org/[Vim]::
