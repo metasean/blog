@@ -164,11 +164,11 @@ ____
 
 
 
-If you look me up in both Free Code Camp and Codewars, you'll notice that —despite my glowing review of Free Code Camp— I spend most of my "just learning and practicing" energy on Codewars' katas.   So, despite everything I just shared, the most important things are that find your own path and have fun on your own journey!  Whether you want to beeline through something like Free Code Camp, or wonder through katas and documentation, or explore documentation as you build your own personal projects —do what works for you— and as you learn more refactor your own path.
+If you look me up in both Free Code Camp and Codewars, you'll notice that —despite my glowing review of Free Code Camp— I spend most of my "just learning and practicing" energy on Codewars' katas.   So, despite everything I just shared, the most important things are that you (a) _find your own path_ and (b) _have fun on your own journey!_  Whether you want to beeline through something like Free Code Camp, or wonder through katas and documentation, or just explore documentation as you build your own personal projects —do what works for you— and as you learn more refactor your own path.
 
 Hopefully this article helps you get rockin' and codin'!  
 
-If you're in the Salt Lake City area, please come say, "hi" at a http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, attend events with "Learners'" in the name, and know you are among friends and fellow JavaScript adventurers!
+If you're in the Salt Lake City area, please come say, "hi" at an http://www.meetup.com/UtahJS/events/suggested/#upcoming[upcoming UtahJS event].  If you're feeling timid, attend events with "Learners'" in the name, and know you are among friends and fellow JavaScript adventurers!
 
 Most importantly ...
 
