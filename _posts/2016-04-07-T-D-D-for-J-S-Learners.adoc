@@ -1,0 +1,45 @@
+TDD for JS Learners
+===================
+:hp-tags: JavaScript, TDD, Recommendations, Learners
+
+:toc:
+
+## What is TDD?
+
+TDD stands for Test Driven Development.  The idea is pretty simple, when developing code, you should know and test the outcome of your code before you actually write the code.  That probably sounds weird, but bear with me for a moment.
+
+Imagine you're teaching a class of kids how to do subtraction for the first time.  After giving them the introduction, you write "3-1" up on the board, then hav each kid write their answer really big on a sheet of paper and hold it up.  Most kids hold up a sheet with the number "2" in it, but a few hold up a sheet with the number "4" on it.  You now have a snapshot of the whole class and know which students don't quite have the concept.  TDD is kind of like this, but for you and your code.
+
+## Prerequisites
+
+You really don't need a lot to get started with your own TDD.  For the version I'm going to show you, you need to be minimally familiar with 
+
+[code,JavaScript]
+----
+
+// single-line comments <1>
+
+var variable = 'defined'; // var and the idea of variables <2>
+
+function recipe (parameters) {
+	// functions, function declaration, <3>
+    // and function parameters <4>
+    return true; // returning functions<5>
+}
+
+----
+
+If you don't know these things, check out:
+<1> https://www.freecodecamp.com/challenges/comment-your-javascript-code
+<2> https://www.freecodecamp.com/challenges/declare-javascript-variables
+<3> https://www.freecodecamp.com/challenges/write-reusable-javascript-with-functions
+<4> https://www.freecodecamp.com/challenges/passing-values-to-functions-with-arguments
+<5> https://www.freecodecamp.com/challenges/return-a-value-from-a-function-with-return
+
+
+
+## Pseudo-code time
+
+If I'm writing a function to do basic addition, I'd start by writing something that looks like:
+
+----
