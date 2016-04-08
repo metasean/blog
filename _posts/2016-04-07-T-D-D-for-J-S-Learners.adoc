@@ -1,45 +1,504 @@
 TDD for JS Learners
 ===================
-:hp-tags: JavaScript, TDD, Recommendations, Learners
+:hp-tags: JavaScript, TDD, BDD, Recommendations, Learners
 
 :toc:
 
-## What is TDD?
-
-TDD stands for Test Driven Development.  The idea is pretty simple, when developing code, you should know and test the outcome of your code before you actually write the code.  That probably sounds weird, but bear with me for a moment.
-
-Imagine you're teaching a class of kids how to do subtraction for the first time.  After giving them the introduction, you write "3-1" up on the board, then hav each kid write their answer really big on a sheet of paper and hold it up.  Most kids hold up a sheet with the number "2" in it, but a few hold up a sheet with the number "4" on it.  You now have a snapshot of the whole class and know which students don't quite have the concept.  TDD is kind of like this, but for you and your code.
+This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background _and_ implement your own test framework - but if you're just itching to code, do a quick review of the prerequisites then jump to link:#_implementing_a_learners_level_test_framework[Implementing a Learners' Level Test Framework].
 
 ## Prerequisites
 
-You really don't need a lot to get started with your own TDD.  For the version I'm going to show you, you need to be minimally familiar with 
+You really don't need a lot of prerequisite knowledge to follow along with this post.  
+
+Web Console::
+You do need to be able to use your browser's web console and scratchpad.  If you aren't familiar with your browser's console and scratchpad, wait for the video version of this post.
+
+JavaScript::
+For the version I'm going to show you, you need to be minimally familiar with the following concepts.  
 
 [code,JavaScript]
 ----
-
-// single-line comments <1>
+// comments <1>
 
 var variable = 'defined'; // var and the idea of variables <2>
 
 function recipe (parameters) {
-	// functions, function declaration, <3>
-    // and function parameters <4>
-    return true; // returning functions<5>
+	/* functions, 
+		specifically:
+		function declaration <3>
+		and function parameters <4>
+	*/
+	return true; // how to return values from a function<5>
+}
+----
+
+If you don't know these things, check out: 
+
+<1> https://www.freecodecamp.com/challenges/comment-your-javascript-code  
+
+<2> https://www.freecodecamp.com/challenges/declare-javascript-variables  
+
+<3> https://www.freecodecamp.com/challenges/write-reusable-javascript-with-functions  
+
+<4> https://www.freecodecamp.com/challenges/passing-values-to-functions-with-arguments  
+
+<5> https://www.freecodecamp.com/challenges/return-a-value-from-a-function-with-return  
+
+
+*JavaScript that you will pick up en route*
+
+As we proceed through this post, we'll actually touch on a lot of other aspects of JS, including if statements, equality, and objects.  But, you do _not_ need to know anything about these to follow along. I'll either explicitly explain what I'm doing or I'll assume that the context makes it clear what's going on (where I've done that, I've also provided links to relevant documentation, so that if you want to dive into it more you'll already be standing on a good diving board).
+
+## Background
+
+### What is TDD?
+
+TDD stands for Test Driven Development.  An extremely related concept is Behavior Driven Development (BDD).  The idea for both is pretty simple - when developing code, you should know and test the outcome of your code before you actually write the code.  That may sound weird, but bear with me for a moment.
+
+Imagine you're teaching a class of kids how to do subtraction for the very first time.  After giving them the introduction, you write "3 - 1 =" up on the board, then have each kid write their answer really big on a sheet of paper and hold it up.  Most kids hold up a sheet with the number "2" in it, but a few hold up a sheet with the number "4" on it.  You now have a snapshot of the whole class and know which students don't quite have the concept.  TDD is kind of like this, but for you and your code.
+
+
+
+### Test Pseudo-code and Example
+
+Our primary goal is to be able to write a basic.  A basic test looks something like like:
+
+----
+var is = 'the code to be run';
+var expect = 'the result I expect back';
+var msg = 'a name for the test';
+
+test(is, expect, msg);
+----
+
+Imagine we have to write an `add` function, that takes two parameters and returns their sum.  Using the example above, what might such a test look like?
+
+Well it could be like anyone of the following examples, and many others!
+
+[code,JavaScript]
+----
+test( add(1,1), 2, '1+1 = 2');
+test( add(42,0), 22, '42+0 = 0');
+test( add(42,0), 22, 'positive and zero');
+test( add(3.14, 3.14), 6.28, 'pi to tau');
+test( add(-100, -50), -50, 'negative and negative');
+----
+
+If you notice, I've made a call to a `test` function, but that function doesn't exist - _yet!_  We'll come back to this in just a moment.  First, we're going to take a really quick detour into some terminology and styles.
+
+### TDD Frameworks and Testing Types
+
+First, lets get a high lvel overviwe of sme key concepts and terms.
+
+### Basic Concepts
+
+Different groups may have important nuances among their use of these terms. 
+
+#### Test Types
+
+Unit Tests::
+Unit Tests test individual JavaScript functions.  _For this exercise, we're going to be working exclusively with unit tests._
+
+Integration Tests::
+Integration Tests test groups and the interrelation of JavaScript functions.
+
+End-to-End Tests::
+End-to-End Tests test specific functionality from the front end to the back and back again.
+
+#### Assertions
+
+Assertion Styles::
+Assertion styles specify the http://chaijs.com/guide/styles/[lingo] that will be used to construct tests.  There are three primary styles: assert, expect, and should.
++
+  * assert style test: `assert.equal( add(1,1), 2, '1+1 = 2' );`
+  * expect style test: `expect.( add(1,1), '1+1 = 2' ).to.equal( 2 );`
+  * should style test: `add(1,1).should.equal( 2 );`
+
+We're going to work up to a slightly different style, specifically `Test.assertEquals( add(1,1), 2, '1+1 = 2' );`.
+
+[NOTE]
+====
+The important thing to notice at this point is that while there are different styles, they all include the same three elements: `is`, `should`, and `msg`.  Everything else is just "semantic sugar".
+====
+
+### Red, Green, Refactor
+
+One last thing before we dive into the code.
+
+In the realm of TDD, the goal is to _initially fail_.  You read that correctly, we want to fail first.  This is frequently referred to as 'red' (and most frameworks will show you a failing test result in red).  This is because we want to make sure that our test is actually testing what we think it is.
+
+Of course, once we write the code, we want our test to pass.  This is referred to as 'green' (and if you think most frameworks will show you the result in green, you are correctomundo).  We now have reasonable confidence that our test and our code do what we told them to do.  Just beware - what you told them to do may not be what you actually want them to do.  As you code more, you'll understand this caveat.
+
+Once you have the test and code working as stated, then you can edit your code to be more clear, more concise, more precise, etc.  This is known as "refactoring" the code.  One of the awesome things about TDD is that you can refactor your code with the confidence that _if you break functionality that has a test - your tests will fail, thereby alerting you that there is a problem_. 
+
+## Implementing a Learners' Level Test Framework
+
+Okay, now for the fun part!
+
+We're going to iterate through writing our own test framework.  It will of course be very simple, but by writing it yourself, you can (a) easily test your own functions without being dependent on a specific test framework, (b) customize it to your heart's content, and (c) expand it as your needs grow.
+
+//// 
+TODO: add git stuff here
+
+If you're familiar with git, you should go ahead and start a repo, then commit after each version below.
+
+If you are _not_ familiar with git, go ahead and work through the code below.  Afterwards, check out https://www.codeschool.com/courses/try-git[git].
+////
+
+### Version 0 - Red
+
+Since I'm clearly advocating TDD, we're actually going to TDD our own test framework!
+
+To do this, we're going to write some really basic calls to our non-existent test framework.  
+
+[IMPORTANT]
+====
+These tests are *_not_* going to work like normal tests.
+
+We're specifically going to write two tests: one testing a passing condition and the second testing a failing condition.  In other words, we will *_want_* the second test to *_fail_*! 
+====
+
+We're going to start with the test style from our pseudo-code above.  
+
+----
+test( is, should, msg );
+----
+
+In our first test, we're going to ensure that the same  value results in a passing test. 
+
+[code,JavaScript]
+----
+test( 42, 42, 'a passing condition' );
+----
+
+In our second test, we're going to ensure that different values result in a failing test.  
+
+[code,JavaScript]
+----
+test( 3.14, 6.28, 'a failing condition' );
+----
+
+Open your browser's scratchpad and enter your meta-tests.  Your final version 0 meta-test should look something like:
+
+[code,JavaScript]
+----
+// my meta-tests
+test( 42, 42, 'my passing condition' );
+test( 3.14, 6.28, 'my failing condition' );
+----
+
+With your tests in your scratchpad, go ahead and run it.  You should get something to the effect of:
+
+----
+/*
+Exception: ReferenceError: test is not defined
+@Scratchpad/4:2:1
+*/
+----
+
+_If so - AWESOME!  This is your very first "red"!  WOOT! WOOT!_
+
+*_If your result does not include something to the effect of `test is not defined` -_ STOP _- go check and double check everything until you're getting this type of error._*  
+
+### Version 1 - Green
+
+Now it's time to go green.  
+
+First, let's review our error message.
+
+----
+/*
+Exception: ReferenceError: test is not defined
+@Scratchpad/4:2:1
+*/
+----
+
+The crux of the error is the "`test is not defined`" bit.  Knowing that, we're going to start by defining test.  We could just do a `var test`, but `test` is going to be a function, so instead we're going to do this:
+
+[code,JavaScript]
+----
+function test() {
+	
+}
+----
+
+Now if you run your code, what do you get?
+
+I got nothing at all.  No error, no console.log messages, nothing, nadda, nill.
+
+Why might this be?
+
+Well, we call `test` twice, and presumably `test` ran twice, but `test` itself does nothing, nadda, nill!  
+
+So let's make `test` do something. How about outputting a simple message?
+
+[code,JavaScript]
+----
+function test() {
+  console.log('is test doing what we tell it to do');
+}
+----
+
+If you run that, you should get your message logged to the console twice.  In other words, `test` is doing exactly what we tell it to at this point. 
+
+So, let's tell it to compare an `is` with a `should` and log the result. 
+
+[code,JavaScript]
+----
+function test(is, should) {
+  console.log (is === should);
+}
+----
+
+If you run your code now, you should get one 'true' and one 'false' - that's _almost_ what we want.  In other words, we're on the right track!  _Importantly, it's close enough that you could actually use it just like this if you wanted or needed to do so!_
+
+But it's much more clear to have an actual "pass" or "fail".  We can accomplish this several different ways.  For reasons that may become clear, I'm going to steer us toward an `if` approach.  So, let's implement a basic `if` check and then log either "pass" or "fail".
+
+This is how I implemented my basic `if` check with the corresponding logs:
+
+[code,JavaScript]
+---- 
+function test(is, should) {
+  if (is === should) { <1>
+    console.log('pass');
+    return; <2>
+  }
+  console.log('fail');
+}
+----
+
+<1> If you aren't familar with JS https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators[comparison operators], the triple equal is a "strict equality" operator.  It returns `true` only if the items being compared are _exactly_ equal.  There are many other types of comparisons.  Most test frameworks will actually incorporate different types of equality and comparisons.  For this exercise, we're only going to use strict equality.  But remember - _this is your library, so when we're done feel free to add some additional comparisons!_
+<2> If you look closely, I added a `return` and didn't use an `else`.  The `return` inside the `if` causes any passing test to exit at that point.  As I understand it, this improves performance –ever so slightly.  It is also a stylistic choice.  
+
+*_If you haven't figured it out yet - We're GREEN!!!!  WOOT! WOOT! It's time to do a happy dance, or at least a high five, thumbs up, fist bump with someone nearby!_*
+
+### Version 2 - Refactor
+
+As you're using your test library, there are a handful of things that you're likely to want.  We'll refactor to add these things in.  
+
+#### Message / Test Name
+
+First, let's add our test's message to the output, but only if we fail.  We can do this by using the https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Addition_()[`+` operator] to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat#Performance[concatenate] `msg` to the fail's log.  While we're at it, let's make the fail message a bit more prominent and add a https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Escape_notation[new line] before each test's output.
+
+My code looks like this now:
+
+[code,JavaScript]
+----
+function test(is, should, msg) {
+  if (is === should) {
+    console.log('\npass');
+    return;
+  }
+  console.log('\nFAIL: ' + msg);
+}
+----
+
+Don't forget to run your code and make sure you get your expected output!  For me, that's:
+
+----
+pass
+
+FAIL: my failing condition
+---- 
+
+#### `is` vs. `should`
+
+If a test fails, it's also useful to know what we got compared to what we expected.  So let's add that to our fail message.
+
+My version looks like this:
+
+[code,JavaScript]
+----
+function test(is, should, msg) {
+  if (is === should) {
+    console.log('\npass');
+    return;
+  }
+  console.log('\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"');
+}
+----
+
+Which outputs like this:
+
+----
+pass
+
+FAIL: my failing condition
+expected "6.28" but got "3.14"
+---- 
+
+#### Jazz it up a bit
+
+Let me show you a https://developer.mozilla.org/en-US/docs/Web/API/Console#Styling_console_output[cool thing] about most modern browsers – something that's particularly relevant for our test's output:
+
+[code,JavaScript]
+----
+function test(is, should, msg) {
+  if (is === should) {
+    console.log('%c\npass', 'color: green');
+    return;
+  }
+  console.log('%c\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"', 'color: red');
+}
+----
+
+Without running that code, what do you think is going to happen?
+
+If you guessed that it colors passing log messages green and failing log messages red - great guess!
+
+If you wanted to leave your `test` function right here, it's pretty dang useful as it is; _but_ let's bump it up just a notch! ;-)
+
+## Version 3 - Object-ifying your test
+
+I highly recommend working through http://www.codewars.com/kata/search/my-languages?q=&beta=false&order_by=rank_id+asc[Codewar's code katas].  One of the great things about the lower level katas is that most come with some visible tests – _BUT_ – frequently there are important tests that aren't visible, and as you move up through the http://www.codewars.com/about[ranks] many kata authors provide fewer and fewer tests.  So, it's a great place to get in the habit of writing your own tests!  Codewars has their own http://www.codewars.com/docs/js-slash-coffeescript-test-reference[test framework].  If you check out their documentation, you'll notice that our function is most like their `Test.assertEquals`.
+
+Don't fret if that function call looks a bit strange.  The `Test` part indicates that it is an https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype#Examples[object functioning as a "pseudo-class"] and the `.assertEquals` is simply a function within that pseudo-class.
+
+But, before we go any further, let's change our meta-tests to use our new function's target syntax.  We'll do that by changing `test` to `Test.assertEquals`:
+
+[code,JavaScript]
+----
+// my meta-tests
+Test.assertEquals( 42, 42, 'my passing condition');
+Test.assertEquals( 3.14, 6.28, 'my failing condition');
+----
+
+Don't forget to run your revised code!  
+
+You should get a `Test is not defined` error, which should feel awfully familiar!  
+
+This time, we are going to use a `var`.  Specifically, we're going to create a new function using a https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#Examples["function statement"] _before_ our current `test` function.
+
+My code looks like this now:
+
+[code,JavaScript]
+----
+// my actual Test object
+var Test = function() {};
+----
+
+Go ahead and run your code - I'll wait ;-)
+
+If your test calls come _before_ your new `Test` function, then you should have gotten the same "`Test is not defined`" error!  But do not sweat this - just move your test calls after your new function, so that your code looks something like this:
+
+[code,JavaScript]
+----
+// my actual Test class
+var Test = function() {};
+
+function test(is, should, msg) {
+  if (is === should) {
+    console.log('%c\npass', 'color: green');
+    return;
+  }
+  console.log('%c\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"', 'color: red');
 }
 
+// my meta-tests
+Test( 42, 42, 'my passing condition');
+Test( 3.14, 6.28, 'my failing condition');
 ----
 
-If you don't know these things, check out:
-<1> https://www.freecodecamp.com/challenges/comment-your-javascript-code
-<2> https://www.freecodecamp.com/challenges/declare-javascript-variables
-<3> https://www.freecodecamp.com/challenges/write-reusable-javascript-with-functions
-<4> https://www.freecodecamp.com/challenges/passing-values-to-functions-with-arguments
-<5> https://www.freecodecamp.com/challenges/return-a-value-from-a-function-with-return
+[TIP]
+====
+So why were you able to run `test` after your test calls, but you couldn't run `Test` after your test calls?  Well, that's a really awesome question!  I'm going to say that one more time just for emphasis - _that's a really awesome question!_  
+
+Unfortunately, the answer is kind of a rabbit hole –a great rabbit hole– but a rabbit hole nonetheless.  Since I don't want to go down that rabbit hole in this post, I will instead highly recommend that you https://metasean.github.io/blog/2016/04/02/J-S-Learners-Fieldguide.html#_dive_deep[Dive Deep] into JavaScript sometime soon.
+====
+
+When you re-run your scratchpad, you should experience more than a little bit of déjà vu as you read the "`Test.assertEquals is not defined`" error.  But before you despair too much, note that error message actually includes the `assertEquals` part, which means it's really a different error. ;-)
+
+Before we address that, let's play around for just a bit.  Specifically, add the following code after your empty `Test` function and then run your code.
 
 
-
-## Pseudo-code time
-
-If I'm writing a function to do basic addition, I'd start by writing something that looks like:
-
+[code,JavaScript]
 ----
+Test.yo = function() { 
+  console.log("We're about to rock our Tests!");
+};
+
+Test.yo();
+----
+
+Before I go any further, try to work through what you think the code is doing, and then try to modify your `test` function so that your tests work.
+
+If your code doesn't work and you can't figure out the next step based on the `Test.yo` code, then go ahead and review my final, working code:
+
+[code,JavaScript]
+----
+// my actual Test class
+var Test = function() {};
+
+// my actual assertEquals Test method
+Test.assertEquals = function(is, should, msg) {
+  if (is === should) {
+    console.log('%c\npass', 'color: green');
+    return;
+  }
+  console.log('%c\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"', 'color: red');
+}
+
+// my meta-tests
+Test.assertEquals( 42, 42, 'my passing condition');
+Test.assertEquals( 3.14, 6.28, 'my failing condition');
+----
+And that's mostly it.  At this point, you can now write lots of strict equality tests and get useful information back.  Even better, you should be able to:
+
+* Write a super quick, super simple test function in JavaScript!
+* Modify your version of `Test.assertEquals`!
+* Add new tests to your `Test` object to your heart's content!
+
+*Consider this as my gift to you.  Please enjoy doing awesome magic with your very first code wizard's wand!*
+
+
+## Next Steps
+
+### Add all the tests!
+
+_As I've mentioned, the library we just wrote only evaluates strict equality._ 
+
+Not only are there other things that can be evaluated (e.g. greater than, less than, includes, etc.), strict equality does *_not_* consider different arrays or objects to be "equal", even if they have exactly the same value!  You probably want to incorporate some type of array and object comparison into your own library at some point. _If that does not make sense - it's not the right time for you to do it - and that's perfectly fine!_  When you start working with arrays and objects, just remember that this test framework won't do what you want.  But also remember that you have the power to add that functionality to your test framework!  (And it's a wonderful exercise at that point! ;-) )
+
+### Framework and Service Overview
+
+I'm certainly no expert on TDD frameworks or services –heck, I still struggle to get them set up in my own projects :-( – but I have experimented with some, and read and heard about even more.  
+
+Here's what I've picked up so far, just know it is by no means comprehensive, but hopefully it helps you on your JavaScript adventures!
+
+http://mochajs.org/[Mocha] and https://jasmine.github.io/edge/introduction.html[Jasmine]::
+The two unit and functional testing frameworks I've encountered.  While I _love_ Jasmine's documentation, I have a slight preference for Mocha.
+
+http://chaijs.com/guide/styles/[Chai]::
+_The_ assertion library that I've used.
+
+http://docs.seleniumhq.org/docs/03_webdriver.jsp[Selenium]::
+Specifically, Selenium WebDriver, the underlying technology for most of the headless browsers and end-to-end test frameworks.  I have a hate-love-hate relationship with it.  It's been a pain to get up and running or updating, but when it's working it's practically invisible. 
+
+http://phantomjs.org/[PhantomJS], http://casperjs.org/[CasperJS], https://github.com/assaf/zombie[Zombie.js], http://dalekjs.com/pages/faq.html[DalekJS]::
+These are all headless browsers, which basically means they run end-to-end tests against a theoretical browser.  I've barely used any of these, but love their names.
+
+https://angular.github.io/protractor/#/[Protractor], https://theintern.github.io/intern/[Intern], and http://nightwatchjs.org/[Nightwatch.js]::
+These are all true end-to-end test frameworks.  Protractor is strongly associated with Angular; I haven't used it, but have heard good things.  I've played a bit with both Intern and Nightwatch.js and have a slight preference for Nightwatch.js.
+
+https://www.browserstack.com/[BrowserStack], https://saucelabs.com/[Sauce Labs], and https://testingbot.com/[Testingbot]::
+These are all cross browser testing services.  Basically, they are virtual machine farms, that allow you to run your end-to-end tests against a wide range of operating systems and browser versions.  I've have not tried Testingbot.  I have a slight preference for BrowserStack.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
