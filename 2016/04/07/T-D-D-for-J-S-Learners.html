@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>TDD for JS Learners</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TDD for JS Learners">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="TDD for JS Learners">
+    <meta property="og:description" content="">
+
+    <!-- <meta name="twitter:site" content="">
+
+<meta name="twitter:creator" content="">
+
+<meta name="google-site-verification" content="">
+
+<meta property="fb:admins" content="">
+ -->
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="//fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="//MetaSean.github.io/blog/themes/bashful/assets/css/main.min.css?v=1.0.0"/>
+    <link rel="stylesheet" href="//MetaSean.github.io/blog/themes/bashful/assets/css/custom.css?v=1.0.0"/>
+    <link rel="stylesheet" href="//MetaSean.github.io/blog/themes/bashful/assets/css/asciidoctor-foundation.css?v=1.0.0"/>
+
+
+
+
+    <script type="text/javascript">
+      var ga_ua = 'UA-XXXXX-X';
+      
+      var disqus_shortname = 'example';
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="//MetaSean.github.io/blog/themes/bashful/assets/js/head-scripts.min.js?v=1.0.0"></script>
+
+    <link rel="canonical" href="https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html" />
+    
+    <meta property="og:site_name" content="MetaSean" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="TDD for JS Learners" />
+    <meta property="og:description" content="This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re just..." />
+    <meta property="og:url" content="https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html" />
+    <meta property="article:published_time" content="2016-04-07T06:00:00.000Z" />
+    <meta property="article:modified_time" content="2016-04-08T12:56:09.349Z" />
+    <meta property="article:tag" content="JavaScript" />
+    <meta property="article:tag" content="TDD" />
+    <meta property="article:tag" content="BDD" />
+    <meta property="article:tag" content="Recommendations" />
+    <meta property="article:tag" content="Learners" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="TDD for JS Learners" />
+    <meta name="twitter:description" content="This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re just..." />
+    <meta name="twitter:url" content="https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "MetaSean",
+    "author": {
+        "@type": "Person",
+        "name": "MetaSean",
+        "image": "https://avatars.githubusercontent.com/u/7552754?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": "https://MetaSean.info"
+    },
+    "headline": "TDD for JS Learners",
+    "url": "https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html",
+    "datePublished": "2016-04-07T06:00:00.000Z",
+    "dateModified": "2016-04-08T12:56:09.349Z",
+    "keywords": "JavaScript,  TDD,  BDD,  Recommendations,  Learners",
+    "description": "This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re just..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="MetaSean" href="https://MetaSean.github.io/blog/rss" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+  </head>
+  <body class="post-template tag-Java-Script tag-T-D-D tag-B-D-D tag-Recommendations tag-Learners">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="https://MetaSean.github.io/blog" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <!-- <li class="drawer-list-item">
+            <a href="https://MetaSean.github.io/blog" title="MetaSean" data-pjax>
+              <i class="fa fa-list-alt"></i>All posts
+            </a>
+          </li> -->
+          <!--
+          <li class="drawer-list-item">
+            <a href="https://MetaSean.github.io/blog/rss/">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          -->
+          <li class="drawer-list-divider"></li>
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          
+          
+          <li class="drawer-list-item">
+            <a href="http://www.codewars.com/users/metasean" title="Code Wars" target="_blank">
+              	<!-- codewars svg from http://www.eagle-js.com/social-coding via https://github.com/FortAwesome/Font-Awesome/issues/4809#issuecomment-133095442 -->
+          	<svg class="fa codewars" version="1.1" x="0px" y="0px" viewBox="0 0 85 85" style="enable-background:new 0 0 85 85;" xml:space="preserve">
+          		<g>
+          			<path d="M14.4,71.1c-1.2-2.1-3.9-2.7-3.4-5.5c0-0.2-0.4-0.6-0.6-0.6c-4.1-0.8-2.8-4.9-4.3-7.2c-0.3-0.5,0.2-1.6-0.1-1.9
+          					c-2-2-0.2-3.1,1-4.3c-0.6-0.7-1.3-1.4-1.9-2.1c1.5-0.8-0.1-1.5,0-2.2c0.3-2.4-0.6-4.3-2-6.2c-0.7-1-1.8-2.1-0.2-3.8
+          					c0.8-0.8,2.2-2.7,0.4-4.7c-1.1-1.2,1.1-2.3,1.4-3.6c0-0.1,1.3-0.1,1.2-0.4c-1.1-3.7,2.8-4.4,3.9-6.8c0.4-0.9,1.6-1.3,2-2.2
+          					c0.2-0.6-1.6-1.3-0.4-2.5c0.8,0.6,1.6,1.4,2.5,1.8c1,0.4,1.4-1.3,2.6-1c0.6,0.2,1.4,0.2,1.5-0.7c0.1-1.5,1.4-2.3,2.4-3
+          					c1.9-1.4,2.2-4.2,4.3-5.2c1.9-0.9,3.6-1.9,5.1-3.3c1.8-1.5,3.8-1.2,6,0.1c0.3-0.4,0.7-0.9,1.2-1.3c0.7-0.6,1.4-2.1,2.2-1.5
+          					c1.1,0.7,2,0.2,3,0.4c1.4,0.3,2.8,1.8,4.5,0.5c0.5-0.4,1.2,0.2,1.6,0.7C51.1,8.2,55.1,8.5,59,9c1.3,0.2,2.7,0.1,4,0
+          					c1.1-0.1,1.9,0.2,2.6,1.1c1,1.4,2.4,2.2,4.2,2c0.4-0.1,0.9,0.2,1.3,0.5c1,1,1.9,2.1,2.6,3.4c0.5,1,2,1.5,3,2.2
+          					c0.5,0.4,0.2,1,0.4,1.3c1.4,2.4,2.1,5.1,2.9,7.8c0.2,0.6,0.2,1.3-0.5,1.8c-0.8,0.6-0.7,2-0.4,2.2c2.3,1.6,2,4,2,6.2
+          					c0,0.1,0.2,0.3,0.3,0.4c3.3,1.8,2.5,5,2.7,7.9c0.3,3.6,0.5,3.6-1.4,6.1c-0.5,0.7-0.5,0.9,0.1,1.5c0.3,0.3,0.3,0.9,0.2,1.3
+          					C81.7,57.9,77,62.4,73,64c-1.2,0.5-2.1,1.3-2.5,2.2c-0.6,1.2-1.6,1.6-2.4,2.5c-1.2,1.2-2.5,1.3-3.9,1.7c1.2,1.3,0,2.7-0.6,3.4
+          					c-1.4,1.7-2.7,4-5.6,3.3c-0.2,0-0.4-0.1-0.5,0c-2,2.9-5.1,2.7-8.2,3.3c-2.1,0.4-3.8,1-5.8-0.1c-1.7-0.9-3.7,0.1-5.7-0.6
+          					c-1.9-0.7-3.5-1.4-4.8-3c-1-1.3-2.2-1.9-3.8-1.6c-1.2,0.2-2.2-0.2-3-1.2c-0.7-0.9-1.3-0.7-2.4-0.2c-2.8,1.2-5.1,0.3-6.8-2.5
+          					C16.1,69.4,15.5,70,14.4,71.1z M52.1,52.6c-1.5,1-2.5,2.1-2.1,3.8c0.4,1.4-0.8,2.4-0.9,3.6c-0.2,1.3-1.3,0.7-1.8,1.2
+          					c-0.7,0.8-0.2,1.9-0.3,2.9c-0.1,0.6-0.4,0.7-0.9,1c-1.8,1.2-4.1,1.7-4.5,4.7c-0.2,1.2-1.8,2.7-3.9,2.4c-0.9-0.1-2-0.5-2.8,0.5
+          					c1.3,1.2,3.1-0.1,4.5,1.3c0.9,0.8,3,0.8,4.3,0.7c1.3-0.1,2.8-1.1,4.1-0.9c0.8,0.1,1-0.1,1.4-0.4c0.6-0.5,1-1.4,2-1.1
+          					c2.1,0.6,2.5-1.2,3.4-2.3c1-1.2,2.9-2,3.1-3.7c0.3-1.9,1.1-3.2,2.2-4.6c1.2-1.6-0.8-3.1-0.1-4.7c0.1-0.1,0.1-0.3,0.2-0.4
+          					c1.3-1,0.9-1.9-0.1-2.8c-0.6-0.5-1.4-1.1-1-2c1.1-2.5-3.1-2.7-2.1-5.1c0,0-0.5-0.4-0.8-0.4c-2.6,0.1-4.3-1.7-6.2-3.5
+          					c-0.8,0.8-1.5,1.3-1.9,1.9c-0.5,0.9,0.3,1.5,1,2c1,0.7,1.1,1.6,0.9,2.6C49.7,50.8,51,51.4,52.1,52.6z M63.8,33c-0.7,0-1.3,0.1-2,0
+          					c-4.5-0.5-8.5,0.5-12.9,2.9c-0.7,0.4-1,0.7-0.9,1.3c0.1,0.5,0.5,0.8,1,0.7c1.8-0.2,3.2,1,5.1,1.1c3.3,0.2,5.6,3.1,8.7,4.2
+          					c1.6,0.5,0.9,2.3,1.4,3.4c0.3,0.5,1,1.3,1.4,1.2c1.7-0.2,1.2,1.2,1.6,1.9c1.2,1.8,0.3,4.5,2.7,5.9c0.3,0.1,0.2,1.5-0.1,1.8
+          					c-1.7,1.5,0.2,1.7,0.7,2.4c0.5-0.5,1-0.9,1.4-1.4c1.4-2.1,3.2-4,3.9-6.3c1.1-3.8-0.9-7.6-0.9-11.5c0-0.2-0.4-0.6-0.6-0.6
+          					c-2.1-0.2-3-2-4.1-3.3c-1.9-2.3-4-1.9-6.2-1C64,34.8,63.9,34,63.8,33z M10.7,40.6c1.5,0.5,2.6,0.8,3.2,1.9c1.3,2.2,2.7,4.2,5.5,4.6
+          					c1,0.2,0,1.9,1.6,2c1.4,0.1,2.8-0.5,4.2,0.6c1.4,1.1,3-0.5,4.3-0.9c1.8-0.5,4.6,0.1,5.2-1.4c0.9-2.1,3.8-1.8,4.1-4.4
+          					c-2.5,0-5-0.1-7.5-0.9c-2.7-0.9-4.6-3.1-7.4-3.7c-1.6-0.4-0.3-3-1.4-3.2c-1.7-0.4-2.7-1.6-3.3-2.7c-0.6-1.1-0.8-2.9,1-4.2
+          					c-3.5-0.3-3.4-2.9-3.3-6.2c-3.4,4.7-7.1,8.2-5.8,13.7c0.7,0.3,1.8,0.6,1.6,0.7C11.3,37.4,12.7,39.5,10.7,40.6z M47.4,19
+          					c-0.7,1.1,0.2,2.4-0.8,3c-1.8,0.9-2.2,2.6-3.2,4.1c-0.9,1.3-1.2,2.5-1.3,4c-0.1,1.4,0.5,2.6,0.6,3.9c0,0.3-0.7,0.7-0.1,1
+          					c0.3,0.1,0.8,0.2,1,0c0.8-0.6,1.9-1.3,2.1-2.1c0.5-1.8,2.4-1.8,3.2-3.1c1.1-1.9,2.9-1.9,4.8-1.8c0.2,0,0.5-0.5,0.7-0.6
+          					c2.6-1.7,5.8-1.1,8.5-2.3c0.6-0.3,1.5-0.2,2.3,0.4c2.6,2,5.7,1.6,9.2,1.4c-1-1.4-2.5-2-2.3-3.7c0.2-2-3-0.9-3-3.2
+          					c0-1.9-0.9,0-1.3-0.1c-0.9-0.2-2.2-0.7-2.3-1.2C65,16.7,63.7,17,62.5,17c-0.5,0-1,0.1-1.5,0c-3.3-0.5-6-0.2-8.7,1
+          					C50.6,18.8,49,19.3,47.4,19z M42.5,47c-2,2-3.9,3.9-5.9,5.9c-0.6,0.6-1,1.3-2,1.1c-1.4-0.3-2.4,0.9-3.5,1.2
+          					c-3.1,0.9-6.5,1.3-9.7,1.5c-0.7,0-2.8-0.7-2.8-2.6c-1.1,1.2-2.6,0.9-4,0.9C14,55,14,53.7,13,54.4c0,0.9,0,1.9,0,2.9
+          					c0,0.6-0.2,1.5,0.6,1.6c1.9,0.2,1.5,3.1,3.2,2.9c1.5-0.1,1.8,3.2,3.7,1.1c0.6,3,3.5,1.7,4.8,3c1.5-0.8-0.1-2.4,1.4-3
+          					c0.6,1-0.2,2.1,0.7,2.9c0.5-0.5,1-1.2,2-1c1.8,0.4,3.7-0.1,5-1.1c1.1-0.8,2.1-0.7,3.1-1c1.4-0.5,1.2-2.2,2.1-3.1
+          					c0.2-0.2,0.5-0.7,0.7-0.7c1.9,0.1,1.6-1.1,1.6-2.3c0-0.6-0.3-1.6,0.5-1.8c2-0.6,0.6-2.2,1.1-3.2C44.4,50.1,44.5,48.3,42.5,47z
+          					 M39.2,38.7c-0.9-0.6-1.5-1.3-1.2-2.2c0.4-1.6-1.2-1.1-1.7-1.7c-0.3-0.3-0.4-1.1-0.2-1.3c1-1.4-0.1-2.8,0-4.2
+          					c0-0.8-0.1-1.5,0.6-2.3c0.8-0.9-1.2-1.4-0.6-2.4c0.1-0.1,0-0.3,0-0.5c0.3-1.4,1.7-1.6,2.7-2.3c1.4-1.1-1.7-2.1-0.5-3.3
+          					c1-1,1.6-2.6,3.5-2.4c0.4,0,0.9-0.3,1.3-0.5c-1.1-2.4,2.3-3,1.9-5.5c-1.4,0-2.9-0.1-4.4,0c-1.5,0.2-3.8-1.1-4.4,0.7
+          					c-0.9,2.6-2.6,0.4-3.6,1.2c-0.2,0.2-0.5,0.6-0.5,0.8c0.6,1.8-1.4,1.8-1.8,2.7c-1.1,2.2-4.4,3.9-2.4,7.2c-1.4,0.6,0.3,2-0.1,2
+          					c-2.3,0.3-1.6,2-1.7,3.3l2.5,4c1.6,1.7,2.5,3.9,4.8,5c0.9,0.4,1.4,1.3,2.2,0c0.9,0.6,1.3,2,2.7,2C38.4,39,38.5,38.9,39.2,38.7z"></path>
+          		</g>
+          	</svg>
+              Codewars
+            </a>
+          </li>
+          
+          <li class="drawer-list-item">
+            <a href="https://github.com/metasean" title="Github" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://www.linkedin.com/in/metasean" title="LinkedIn" target="_blank">
+              <i class="fa fa-linkedin"></i>LinkedIn
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://twitter.com/meta_sean" title="Twitter" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post post tag-Java-Script tag-T-D-D tag-B-D-D tag-Recommendations tag-Learners">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-meta-item">
+                <time datetime="2016-04-07" itemprop="datePublished">
+                  2016-04-07 00:00:00<ago class="ago">
+                </time>
+              </li>
+                <li class="post-meta-item">
+                  <span class="tags"><i class="fa fa-tags"></i>
+                      <span>
+                      <a href="https://MetaSean.github.io/blog/tag/Java-Script">JavaScript</a>, <a href="https://MetaSean.github.io/blog/tag/T-D-D"> TDD</a>, <a href="https://MetaSean.github.io/blog/tag/B-D-D"> BDD</a>, <a href="https://MetaSean.github.io/blog/tag/Recommendations"> Recommendations</a>, <a href="https://MetaSean.github.io/blog/tag/Learners"> Learners</a></span>
+                  </span>
+                </li>
+              <li class="post-meta-item">
+                <a href="#disqus_thread" data-disqus-identifier="9ed7f29e-2d6f-4231-aa55-ebdf49cc4a57">Comments</a>
+              </li>
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="/2016/04/07/T-D-D-for-J-S-Learners.html" itemprop="url" data-pjax title="TDD for JS Learners">TDD for JS Learners</a></h1>
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="https://MetaSean.info" class="post-author-avatar">
+                  <img src="https://avatars.githubusercontent.com/u/7552754?v=3" alt="MetaSean">
+                </a>
+              <div class="post-author-info">
+                <a href="https://MetaSean.info" class="post-author-name">
+                  MetaSean
+                </a>
+                <p class="post-author-bio"></p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background <em>and</em> implement your own test framework - but if you&#8217;re just itching to code, do a quick review of the prerequisites then jump to <a href="#_implementing_a_learners_level_test_framework">Implementing a Learners' Level Test Framework</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You really don&#8217;t need a lot of prerequisite knowledge to follow along with this post.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Web Console</dt>
+<dd>
+<p>You do need to be able to use your browser&#8217;s web console and scratchpad.  If you aren&#8217;t familiar with your browser&#8217;s console and scratchpad, wait for the video version of this post.</p>
+</dd>
+<dt class="hdlist1">JavaScript</dt>
+<dd>
+<p>For the version I&#8217;m going to show you, you need to be minimally familiar with the following concepts.</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// comments <i class="conum" data-value="1"></i><b>(1)</b>
+
+var variable = 'defined'; // var and the idea of variables <i class="conum" data-value="2"></i><b>(2)</b>
+
+function recipe (parameters) {
+	/* functions,
+		specifically:
+		function declaration <i class="conum" data-value="3"></i><b>(3)</b>
+		and function parameters <i class="conum" data-value="4"></i><b>(4)</b>
+	*/
+	return true; // how to return values from a function<i class="conum" data-value="5"></i><b>(5)</b>
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t know these things, check out:</p>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><a href="https://www.freecodecamp.com/challenges/comment-your-javascript-code" class="bare">https://www.freecodecamp.com/challenges/comment-your-javascript-code</a></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><a href="https://www.freecodecamp.com/challenges/declare-javascript-variables" class="bare">https://www.freecodecamp.com/challenges/declare-javascript-variables</a></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><a href="https://www.freecodecamp.com/challenges/write-reusable-javascript-with-functions" class="bare">https://www.freecodecamp.com/challenges/write-reusable-javascript-with-functions</a></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td><a href="https://www.freecodecamp.com/challenges/passing-values-to-functions-with-arguments" class="bare">https://www.freecodecamp.com/challenges/passing-values-to-functions-with-arguments</a></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><a href="https://www.freecodecamp.com/challenges/return-a-value-from-a-function-with-return" class="bare">https://www.freecodecamp.com/challenges/return-a-value-from-a-function-with-return</a></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>JavaScript that you will pick up en route</strong></p>
+</div>
+<div class="paragraph">
+<p>As we proceed through this post, we&#8217;ll actually touch on a lot of other aspects of JS, including if statements, equality, and objects.  But, you do <em>not</em> need to know anything about these to follow along. I&#8217;ll either explicitly explain what I&#8217;m doing or I&#8217;ll assume that the context makes it clear what&#8217;s going on (where I&#8217;ve done that, I&#8217;ve also provided links to relevant documentation, so that if you want to dive into it more you&#8217;ll already be standing on a good diving board).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_background">Background</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_is_tdd">What is TDD?</h3>
+<div class="paragraph">
+<p>TDD stands for Test Driven Development.  An extremely related concept is Behavior Driven Development (BDD).  The idea for both is pretty simple - when developing code, you should know and test the outcome of your code before you actually write the code.  That may sound weird, but bear with me for a moment.</p>
+</div>
+<div class="paragraph">
+<p>Imagine you&#8217;re teaching a class of kids how to do subtraction for the very first time.  After giving them the introduction, you write "3 - 1 =" up on the board, then have each kid write their answer really big on a sheet of paper and hold it up.  Most kids hold up a sheet with the number "2" in it, but a few hold up a sheet with the number "4" on it.  You now have a snapshot of the whole class and know which students don&#8217;t quite have the concept.  TDD is kind of like this, but for you and your code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_pseudo_code_and_example">Test Pseudo-code and Example</h3>
+<div class="paragraph">
+<p>Our primary goal is to be able to write a basic.  A basic test looks something like like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>var is = 'the code to be run';
+var expect = 'the result I expect back';
+var msg = 'a name for the test';
+
+test(is, expect, msg);</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Imagine we have to write an <code>add</code> function, that takes two parameters and returns their sum.  Using the example above, what might such a test look like?</p>
+</div>
+<div class="paragraph">
+<p>Well it could be like anyone of the following examples, and many others!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>test( add(1,1), 2, '1+1 = 2');
+test( add(42,0), 22, '42+0 = 0');
+test( add(42,0), 22, 'positive and zero');
+test( add(3.14, 3.14), 6.28, 'pi to tau');
+test( add(-100, -50), -50, 'negative and negative');</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you notice, I&#8217;ve made a call to a <code>test</code> function, but that function doesn&#8217;t exist - <em>yet!</em>  We&#8217;ll come back to this in just a moment.  First, we&#8217;re going to take a really quick detour into some terminology and styles.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tdd_frameworks_and_testing_types">TDD Frameworks and Testing Types</h3>
+<div class="paragraph">
+<p>First, lets get a high lvel overviwe of sme key concepts and terms.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_basic_concepts">Basic Concepts</h3>
+<div class="paragraph">
+<p>Different groups may have important nuances among their use of these terms.</p>
+</div>
+<div class="sect3">
+<h4 id="_test_types">Test Types</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Unit Tests</dt>
+<dd>
+<p>Unit Tests test individual JavaScript functions.  <em>For this exercise, we&#8217;re going to be working exclusively with unit tests.</em></p>
+</dd>
+<dt class="hdlist1">Integration Tests</dt>
+<dd>
+<p>Integration Tests test groups and the interrelation of JavaScript functions.</p>
+</dd>
+<dt class="hdlist1">End-to-End Tests</dt>
+<dd>
+<p>End-to-End Tests test specific functionality from the front end to the back and back again.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_assertions">Assertions</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Assertion Styles</dt>
+<dd>
+<p>Assertion styles specify the <a href="http://chaijs.com/guide/styles/">lingo</a> that will be used to construct tests.  There are three primary styles: assert, expect, and should.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>assert style test: <code>assert.equal( add(1,1), 2, '1+1 = 2' );</code></p>
+</li>
+<li>
+<p>expect style test: <code>expect.( add(1,1), '1+1 = 2' ).to.equal( 2 );</code></p>
+</li>
+<li>
+<p>should style test: <code>add(1,1).should.equal( 2 );</code></p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>We&#8217;re going to work up to a slightly different style, specifically <code>Test.assertEquals( add(1,1), 2, '1+1 = 2' );</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The important thing to notice at this point is that while there are different styles, they all include the same three elements: <code>is</code>, <code>should</code>, and <code>msg</code>.  Everything else is just "semantic sugar".</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_red_green_refactor">Red, Green, Refactor</h3>
+<div class="paragraph">
+<p>One last thing before we dive into the code.</p>
+</div>
+<div class="paragraph">
+<p>In the realm of TDD, the goal is to <em>initially fail</em>.  You read that correctly, we want to fail first.  This is frequently referred to as <em>red</em> (and most frameworks will show you a failing test result in red).  This is because we want to make sure that our test is actually testing what we think it is.</p>
+</div>
+<div class="paragraph">
+<p>Of course, once we write the code, we want our test to pass.  This is referred to as <em>green</em> (and if you think most frameworks will show you the result in green, you are correctomundo).  We now have reasonable confidence that our test and our code do what we told them to do.  Just beware - what you told them to do may not be what you actually want them to do.  As you code more, you&#8217;ll understand this caveat.</p>
+</div>
+<div class="paragraph">
+<p>Once you have the test and code working as stated, then you can edit your code to be more clear, more concise, more precise, etc.  This is known as "refactoring" the code.  One of the awesome things about TDD is that you can refactor your code with the confidence that <em>if you break functionality that has a test - your tests will fail, thereby alerting you that there is a problem</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_a_learners_level_test_framework">Implementing a Learners' Level Test Framework</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Okay, now for the fun part!</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;re going to iterate through writing our own test framework.  It will of course be very simple, but by writing it yourself, you can (a) easily test your own functions without being dependent on a specific test framework, (b) customize it to your heart&#8217;s content, and (c) expand it as your needs grow.</p>
+</div>
+<div class="sect2">
+<h3 id="_version_0_red">Version 0 - Red</h3>
+<div class="paragraph">
+<p>Since I&#8217;m clearly advocating TDD, we&#8217;re actually going to TDD our own test framework!</p>
+</div>
+<div class="paragraph">
+<p>To do this, we&#8217;re going to write some really basic calls to our non-existent test framework.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>These tests are <strong><em>not</em></strong> going to work like normal tests.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;re specifically going to write two tests: one testing a passing condition and the second testing a failing condition.  In other words, we will <strong><em>want</em></strong> the second test to <strong><em>fail</em></strong>!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>We&#8217;re going to start with the test style from our pseudo-code above.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>test( is, should, msg );</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In our first test, we&#8217;re going to ensure that the same  value results in a passing test.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>test( 42, 42, 'a passing condition' );</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In our second test, we&#8217;re going to ensure that different values result in a failing test.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>test( 3.14, 6.28, 'a failing condition' );</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open your browser&#8217;s scratchpad and enter your meta-tests.  Your final version 0 meta-test should look something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// my meta-tests
+test( 42, 42, 'my passing condition' );
+test( 3.14, 6.28, 'my failing condition' );</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With your tests in your scratchpad, go ahead and run it.  You should get something to the effect of:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/*
+Exception: ReferenceError: test is not defined
+@Scratchpad/4:2:1
+*/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>If so - AWESOME!  This is your very first "red"!  WOOT! WOOT!</em></p>
+</div>
+<div class="paragraph">
+<p><strong><em>If your result does not include something to the effect of <code>test is not defined</code> -</em> STOP <em>- go check and double check everything until you&#8217;re getting this type of error.</em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_1_green">Version 1 - Green</h3>
+<div class="paragraph">
+<p>Now it&#8217;s time to go green.</p>
+</div>
+<div class="paragraph">
+<p>First, let&#8217;s review our error message.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/*
+Exception: ReferenceError: test is not defined
+@Scratchpad/4:2:1
+*/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The crux of the error is the "<code>test is not defined</code>" bit.  Knowing that, we&#8217;re going to start by defining test.  We could just do a <code>var test</code>, but <code>test</code> is going to be a function, so instead we&#8217;re going to do this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function test() {
+
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now if you run your code, what do you get?</p>
+</div>
+<div class="paragraph">
+<p>I got nothing at all.  No error, no console.log messages, nothing, nadda, nill.</p>
+</div>
+<div class="paragraph">
+<p>Why might this be?</p>
+</div>
+<div class="paragraph">
+<p>Well, we call <code>test</code> twice, and presumably <code>test</code> ran twice, but <code>test</code> itself does nothing, nadda, nill!</p>
+</div>
+<div class="paragraph">
+<p>So let&#8217;s make <code>test</code> do something. How about outputting a simple message?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function test() {
+  console.log('is test doing what we tell it to do');
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you run that, you should get your message logged to the console twice.  In other words, <code>test</code> is doing exactly what we tell it to at this point.</p>
+</div>
+<div class="paragraph">
+<p>So, let&#8217;s tell it to compare an <code>is</code> with a <code>should</code> and log the result.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function test(is, should) {
+  console.log (is === should);
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you run your code now, you should get one <em>true</em> and one <em>false</em> - that&#8217;s <em>almost</em> what we want.  In other words, we&#8217;re on the right track!  <em>Importantly, it&#8217;s close enough that you could actually use it just like this if you wanted or needed to do so!</em></p>
+</div>
+<div class="paragraph">
+<p>But it&#8217;s much more clear to have an actual "pass" or "fail".  We can accomplish this several different ways.  For reasons that may become clear, I&#8217;m going to steer us toward an <code>if</code> approach.  So, let&#8217;s implement a basic <code>if</code> check and then log either "pass" or "fail".</p>
+</div>
+<div class="paragraph">
+<p>This is how I implemented my basic <code>if</code> check with the corresponding logs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function test(is, should) {
+  if (is === should) { <i class="conum" data-value="1"></i><b>(1)</b>
+    console.log('pass');
+    return; <i class="conum" data-value="2"></i><b>(2)</b>
+  }
+  console.log('fail');
+}</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>If you aren&#8217;t familar with JS <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">comparison operators</a>, the triple equal is a "strict equality" operator.  It returns <code>true</code> only if the items being compared are <em>exactly</em> equal.  There are many other types of comparisons.  Most test frameworks will actually incorporate different types of equality and comparisons.  For this exercise, we&#8217;re only going to use strict equality.  But remember - <em>this is your library, so when we&#8217;re done feel free to add some additional comparisons!</em></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>If you look closely, I added a <code>return</code> and didn&#8217;t use an <code>else</code>.  The <code>return</code> inside the <code>if</code> causes any passing test to exit at that point.  As I understand it, this improves performance –ever so slightly.  It is also a stylistic choice.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong><em>If you haven&#8217;t figured it out yet - We&#8217;re GREEN!!!!  WOOT! WOOT! It&#8217;s time to do a happy dance, or at least a high five, thumbs up, fist bump with someone nearby!</em></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_refactor">Version 2 - Refactor</h3>
+<div class="paragraph">
+<p>As you&#8217;re using your test library, there are a handful of things that you&#8217;re likely to want.  We&#8217;ll refactor to add these things in.</p>
+</div>
+<div class="sect3">
+<h4 id="_message_test_name">Message / Test Name</h4>
+<div class="paragraph">
+<p>First, let&#8217;s add our test&#8217;s message to the output, but only if we fail.  We can do this by using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Addition_()"><code>+</code> operator</a> to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat#Performance">concatenate</a> <code>msg</code> to the fail&#8217;s log.  While we&#8217;re at it, let&#8217;s make the fail message a bit more prominent and add a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Escape_notation">new line</a> before each test&#8217;s output.</p>
+</div>
+<div class="paragraph">
+<p>My code looks like this now:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function test(is, should, msg) {
+  if (is === should) {
+    console.log('\npass');
+    return;
+  }
+  console.log('\nFAIL: ' + msg);
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to run your code and make sure you get your expected output!  For me, that&#8217;s:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pass
+
+FAIL: my failing condition</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__code_is_code_vs_code_should_code"><code>is</code> vs. <code>should</code></h4>
+<div class="paragraph">
+<p>If a test fails, it&#8217;s also useful to know what we got compared to what we expected.  So let&#8217;s add that to our fail message.</p>
+</div>
+<div class="paragraph">
+<p>My version looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function test(is, should, msg) {
+  if (is === should) {
+    console.log('\npass');
+    return;
+  }
+  console.log('\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"');
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Which outputs like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pass
+
+FAIL: my failing condition
+expected "6.28" but got "3.14"</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jazz_it_up_a_bit">Jazz it up a bit</h4>
+<div class="paragraph">
+<p>Let me show you a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console#Styling_console_output">cool thing</a> about most modern browsers – something that&#8217;s particularly relevant for our test&#8217;s output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>function test(is, should, msg) {
+  if (is === should) {
+    console.log('%c\npass', 'color: green');
+    return;
+  }
+  console.log('%c\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"', 'color: red');
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Without running that code, what do you think is going to happen?</p>
+</div>
+<div class="paragraph">
+<p>If you guessed that it colors passing log messages green and failing log messages red - great guess!</p>
+</div>
+<div class="paragraph">
+<p>If you wanted to leave your <code>test</code> function right here, it&#8217;s pretty dang useful as it is; <em>but</em> let&#8217;s bump it up just a notch! ;-)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_version_3_object_ifying_your_test">Version 3 - Object-ifying your test</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I highly recommend working through <a href="http://www.codewars.com/kata/search/my-languages?q=&amp;beta=false&amp;order_by=rank_id+asc">Codewar&#8217;s code katas</a>.  One of the great things about the lower level katas is that most come with some visible tests – <em>BUT</em> – frequently there are important tests that aren&#8217;t visible, and as you move up through the <a href="http://www.codewars.com/about">ranks</a> many kata authors provide fewer and fewer tests.  So, it&#8217;s a great place to get in the habit of writing your own tests!  Codewars has their own <a href="http://www.codewars.com/docs/js-slash-coffeescript-test-reference">test framework</a>.  If you check out their documentation, you&#8217;ll notice that our function is most like their <code>Test.assertEquals</code>.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t fret if that function call looks a bit strange.  The <code>Test</code> part indicates that it is an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype#Examples">object functioning as a "pseudo-class"</a> and the <code>.assertEquals</code> is simply a function within that pseudo-class.</p>
+</div>
+<div class="paragraph">
+<p>But, before we go any further, let&#8217;s change our meta-tests to use our new function&#8217;s target syntax.  We&#8217;ll do that by changing <code>test</code> to <code>Test.assertEquals</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// my meta-tests
+Test.assertEquals( 42, 42, 'my passing condition');
+Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to run your revised code!</p>
+</div>
+<div class="paragraph">
+<p>You should get a <code>Test is not defined</code> error, which should feel awfully familiar!</p>
+</div>
+<div class="paragraph">
+<p>This time, we are going to use a <code>var</code>.  Specifically, we&#8217;re going to create a new function using a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function#Examples">"function statement"</a> <em>before</em> our current <code>test</code> function.</p>
+</div>
+<div class="paragraph">
+<p>My code looks like this now:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// my actual Test object
+var Test = function() {};</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Go ahead and run your code - I&#8217;ll wait ;-)</p>
+</div>
+<div class="paragraph">
+<p>If your test calls come <em>before</em> your new <code>Test</code> function, then you should have gotten the same "<code>Test is not defined</code>" error!  But do not sweat this - just move your test calls after your new function, so that your code looks something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// my actual Test class
+var Test = function() {};
+
+function test(is, should, msg) {
+  if (is === should) {
+    console.log('%c\npass', 'color: green');
+    return;
+  }
+  console.log('%c\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"', 'color: red');
+}
+
+// my meta-tests
+Test( 42, 42, 'my passing condition');
+Test( 3.14, 6.28, 'my failing condition');</pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>So why were you able to run <code>test</code> after your test calls, but you couldn&#8217;t run <code>Test</code> after your test calls?  Well, that&#8217;s a really awesome question!  I&#8217;m going to say that one more time just for emphasis - <em>that&#8217;s a really awesome question!</em></p>
+</div>
+<div class="paragraph">
+<p>Unfortunately, the answer is kind of a rabbit hole –a great rabbit hole– but a rabbit hole nonetheless.  Since I don&#8217;t want to go down that rabbit hole in this post, I will instead highly recommend that you <a href="https://metasean.github.io/blog/2016/04/02/J-S-Learners-Fieldguide.html#_dive_deep">Dive Deep</a> into JavaScript sometime soon.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When you re-run your scratchpad, you should experience more than a little bit of déjà vu as you read the "<code>Test.assertEquals is not defined</code>" error.  But before you despair too much, note that error message actually includes the <code>assertEquals</code> part, which means it&#8217;s really a different error. ;-)</p>
+</div>
+<div class="paragraph">
+<p>Before we address that, let&#8217;s play around for just a bit.  Specifically, add the following code after your empty <code>Test</code> function and then run your code.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Test.yo = function() {
+  console.log("We're about to rock our Tests!");
+};
+
+Test.yo();</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Before I go any further, try to work through what you think the code is doing, and then try to modify your <code>test</code> function so that your tests work.</p>
+</div>
+<div class="paragraph">
+<p>If your code doesn&#8217;t work and you can&#8217;t figure out the next step based on the <code>Test.yo</code> code, then go ahead and review my final, working code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// my actual Test class
+var Test = function() {};
+
+// my actual assertEquals Test method
+Test.assertEquals = function(is, should, msg) {
+  if (is === should) {
+    console.log('%c\npass', 'color: green');
+    return;
+  }
+  console.log('%c\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"', 'color: red');
+}
+
+// my meta-tests
+Test.assertEquals( 42, 42, 'my passing condition');
+Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And that&#8217;s mostly it.  At this point, you can now write lots of strict equality tests and get useful information back.  Even better, you should be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Write a super quick, super simple test function in JavaScript!</p>
+</li>
+<li>
+<p>Modify your version of <code>Test.assertEquals</code>!</p>
+</li>
+<li>
+<p>Add new tests to your <code>Test</code> object to your heart&#8217;s content!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Consider this as my gift to you.  Please enjoy doing awesome magic with your very first code wizard&#8217;s wand!</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_next_steps">Next Steps</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_add_all_the_tests">Add all the tests!</h3>
+<div class="paragraph">
+<p><em>As I&#8217;ve mentioned, the library we just wrote only evaluates strict equality.</em></p>
+</div>
+<div class="paragraph">
+<p>Not only are there other things that can be evaluated (e.g. greater than, less than, includes, etc.), strict equality does <strong><em>not</em></strong> consider different arrays or objects to be "equal", even if they have exactly the same value!  You probably want to incorporate some type of array and object comparison into your own library at some point. <em>If that does not make sense - it&#8217;s not the right time for you to do it - and that&#8217;s perfectly fine!</em>  When you start working with arrays and objects, just remember that this test framework won&#8217;t do what you want.  But also remember that you have the power to add that functionality to your test framework!  (And it&#8217;s a wonderful exercise at that point! ;-) )</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_framework_and_service_overview">Framework and Service Overview</h3>
+<div class="paragraph">
+<p>I&#8217;m certainly no expert on TDD frameworks or services –heck, I still struggle to get them set up in my own projects :-( – but I have experimented with some, and read and heard about even more.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s what I&#8217;ve picked up so far, just know it is by no means comprehensive, but hopefully it helps you on your JavaScript adventures!</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="http://mochajs.org/">Mocha</a> and <a href="https://jasmine.github.io/edge/introduction.html">Jasmine</a></dt>
+<dd>
+<p>The two unit and functional testing frameworks I&#8217;ve encountered.  While I <em>love</em> Jasmine&#8217;s documentation, I have a slight preference for Mocha.</p>
+</dd>
+<dt class="hdlist1"><a href="http://chaijs.com/guide/styles/">Chai</a></dt>
+<dd>
+<p><em>The</em> assertion library that I&#8217;ve used.</p>
+</dd>
+<dt class="hdlist1"><a href="http://docs.seleniumhq.org/docs/03_webdriver.jsp">Selenium</a></dt>
+<dd>
+<p>Specifically, Selenium WebDriver, the underlying technology for most of the headless browsers and end-to-end test frameworks.  I have a hate-love-hate relationship with it.  It&#8217;s been a pain to get up and running or updating, but when it&#8217;s working it&#8217;s practically invisible.</p>
+</dd>
+<dt class="hdlist1"><a href="http://phantomjs.org/">PhantomJS</a>, <a href="http://casperjs.org/">CasperJS</a>, <a href="https://github.com/assaf/zombie">Zombie.js</a>, <a href="http://dalekjs.com/pages/faq.html">DalekJS</a></dt>
+<dd>
+<p>These are all headless browsers, which basically means they run end-to-end tests against a theoretical browser.  I&#8217;ve barely used any of these, but love their names.</p>
+</dd>
+<dt class="hdlist1"><a href="https://angular.github.io/protractor/#/">Protractor</a>, <a href="https://theintern.github.io/intern/">Intern</a>, and <a href="http://nightwatchjs.org/">Nightwatch.js</a></dt>
+<dd>
+<p>These are all true end-to-end test frameworks.  Protractor is strongly associated with Angular; I haven&#8217;t used it, but have heard good things.  I&#8217;ve played a bit with both Intern and Nightwatch.js and have a slight preference for Nightwatch.js.</p>
+</dd>
+<dt class="hdlist1"><a href="https://www.browserstack.com/">BrowserStack</a>, <a href="https://saucelabs.com/">Sauce Labs</a>, and <a href="https://testingbot.com/">Testingbot</a></dt>
+<dd>
+<p>These are all cross browser testing services.  Basically, they are virtual machine farms, that allow you to run your end-to-end tests against a wide range of operating systems and browser versions.  I&#8217;ve have not tried Testingbot.  I have a slight preference for BrowserStack.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="https://MetaSean.info" class="post-author-avatar">
+                  <img itemprop="image" src="https://avatars.githubusercontent.com/u/7552754?v=3" alt="MetaSean">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="https://MetaSean.info" itemprop="url" class="post-author-name">
+                  <span itemprop="name">MetaSean</span>
+                </a>
+                <p itemprop="description" class="post-author-bio"></p>
+                  <p class="post-author-website">
+                    <a href="https://MetaSean.info" rel="nofollow">https://MetaSean.info</a>
+                  </p>
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">April 07, 2016</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
+      <section itemprop="comment" class="post-comments">
+        <div id="disqus_thread"></div>
+      </section>
+    </article>
+
+    <footer role="contentinfo" class="footer">
+      <p><small>Copyright &copy; <span itemprop="copyrightHolder">MetaSean</span>. 2016. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Adapted by <a href="https://twitter.com/mgreau">Maxime Gréau</a></small></p>
+      <p><small>Published with <a href="http://hubpress.io">HubPress</a></small></p>
+    </footer>
+  </div>
+</section>
+
+
+<section class="post-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_shortname = 'metaseansblog'; // required: replace example with your forum shortname
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();      
+      </script>
+
+    <script src="//MetaSean.github.io/blog/themes/bashful/assets/js/foot-scripts.min.js?v=1.0.0"></script>
+
+
+  </body>
+</html>
