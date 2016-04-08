@@ -4,7 +4,7 @@ TDD for JS Learners
 
 :toc:
 
-This post starts with a lot of useful background information, and then ends with how to implement your own basic test framework.  You should read both the background _and_ implement your own test framework - but if you're just itching to code, do a quick review of the prerequisites then jump to link:_implementing_a_learners_level_test_framework[Implementing a Learners' Level Test Framework].
+This post starts with a lot of useful background information, and then walks you through implementing your own basic test framework.  You should read through the background _and_ implement your own test framework - but if you're just itching to code, do a quick review of the prerequisites then jump to link:_implementing_a_learners_level_test_framework[Implementing a Learners' Level Test Framework].
 
 ## Prerequisites
 
