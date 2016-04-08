@@ -77,10 +77,10 @@
     <meta property="og:site_name" content="MetaSean" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="TDD for JS Learners" />
-    <meta property="og:description" content="This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re just..." />
+    <meta property="og:description" content="This post starts with a lot of useful background information, and then ends with how to implement your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re..." />
     <meta property="og:url" content="https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html" />
     <meta property="article:published_time" content="2016-04-07T06:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-04-08T12:56:09.349Z" />
+    <meta property="article:modified_time" content="2016-04-08T13:28:14.494Z" />
     <meta property="article:tag" content="JavaScript" />
     <meta property="article:tag" content="TDD" />
     <meta property="article:tag" content="BDD" />
@@ -89,7 +89,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="TDD for JS Learners" />
-    <meta name="twitter:description" content="This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re just..." />
+    <meta name="twitter:description" content="This post starts with a lot of useful background information, and then ends with how to implement your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re..." />
     <meta name="twitter:url" content="https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html" />
     
     <script type="application/ld+json">
@@ -107,9 +107,9 @@
     "headline": "TDD for JS Learners",
     "url": "https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html",
     "datePublished": "2016-04-07T06:00:00.000Z",
-    "dateModified": "2016-04-08T12:56:09.349Z",
+    "dateModified": "2016-04-08T13:28:14.494Z",
     "keywords": "JavaScript,  TDD,  BDD,  Recommendations,  Learners",
-    "description": "This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re just..."
+    "description": "This post starts with a lot of useful background information, and then ends with how to implement your own basic test framework.  You should read both the background and implement your own test framework - but if you&amp;#8217;re..."
 }
     </script>
 
@@ -241,7 +241,7 @@
                   </span>
                 </li>
               <li class="post-meta-item">
-                <a href="#disqus_thread" data-disqus-identifier="9ed7f29e-2d6f-4231-aa55-ebdf49cc4a57">Comments</a>
+                <a href="#disqus_thread" data-disqus-identifier="004fbf29-0d59-4555-83e9-d8a9a33248c9">Comments</a>
               </li>
             </ul>
             <h1 itemprop="name headline" class="post-title"><a href="/2016/04/07/T-D-D-for-J-S-Learners.html" itemprop="url" data-pjax title="TDD for JS Learners">TDD for JS Learners</a></h1>
@@ -264,7 +264,7 @@
             <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This post starts with a lot of useful background information, and then walks you through  implementing your own basic test framework.  You should read both the background <em>and</em> implement your own test framework - but if you&#8217;re just itching to code, do a quick review of the prerequisites then jump to <a href="#_implementing_a_learners_level_test_framework">Implementing a Learners' Level Test Framework</a>.</p>
+<p>This post starts with a lot of useful background information, and then ends with how to implement your own basic test framework.  You should read both the background <em>and</em> implement your own test framework - but if you&#8217;re just itching to code, do a quick review of the prerequisites then jump to <a href="_implementing_a_learners_level_test_framework">Implementing a Learners' Level Test Framework</a>.</p>
 </div>
 </div>
 </div>
@@ -272,17 +272,17 @@
 <h2 id="_prerequisites">Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You really don&#8217;t need a lot of prerequisite knowledge to follow along with this post.</p>
+<p>You really don&#8217;t need a lot of prerequisite knowledge to follow along with this lesson.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Web Console</dt>
 <dd>
-<p>You do need to be able to use your browser&#8217;s web console and scratchpad.  If you aren&#8217;t familiar with your browser&#8217;s console and scratchpad, wait for the video version of this post.</p>
+<p>You do need to be able to use your browser&#8217;s web console and scratchpad.  If you aren&#8217;t familiar with your browser&#8217;s console and scratchpad, wait for me to add a video version of this post.</p>
 </dd>
 <dt class="hdlist1">JavaScript</dt>
 <dd>
-<p>For the version I&#8217;m going to show you, you need to be minimally familiar with the following concepts.</p>
+<p>you need to be minimally familiar with the following concepts.</p>
 </dd>
 </dl>
 </div>
@@ -298,7 +298,7 @@ function recipe (parameters) {
 		function declaration <i class="conum" data-value="3"></i><b>(3)</b>
 		and function parameters <i class="conum" data-value="4"></i><b>(4)</b>
 	*/
-	return true; // how to return values from a function<i class="conum" data-value="5"></i><b>(5)</b>
+	return true; // how to return values from a function <i class="conum" data-value="5"></i><b>(5)</b>
 }</pre>
 </div>
 </div>
@@ -333,7 +333,7 @@ function recipe (parameters) {
 <p><strong>JavaScript that you will pick up en route</strong></p>
 </div>
 <div class="paragraph">
-<p>As we proceed through this post, we&#8217;ll actually touch on a lot of other aspects of JS, including if statements, equality, and objects.  But, you do <em>not</em> need to know anything about these to follow along. I&#8217;ll either explicitly explain what I&#8217;m doing or I&#8217;ll assume that the context makes it clear what&#8217;s going on (where I&#8217;ve done that, I&#8217;ve also provided links to relevant documentation, so that if you want to dive into it more you&#8217;ll already be standing on a good diving board).</p>
+<p>As we proceed, we&#8217;ll actually touch on a lot of other aspects of JS, including if statements, equality, objects.  But, you do <em>not</em> need to know anything about these to follow along. I&#8217;ll either explicitly explain what I&#8217;m doing or I&#8217;ll assume that the context makes it clear what&#8217;s going on (where I&#8217;ve done that, I&#8217;ve also provided links to relevant documentation, so that if you want to dive into it more you are on a good diving board).</p>
 </div>
 </div>
 </div>
@@ -346,13 +346,13 @@ function recipe (parameters) {
 <p>TDD stands for Test Driven Development.  An extremely related concept is Behavior Driven Development (BDD).  The idea for both is pretty simple - when developing code, you should know and test the outcome of your code before you actually write the code.  That may sound weird, but bear with me for a moment.</p>
 </div>
 <div class="paragraph">
-<p>Imagine you&#8217;re teaching a class of kids how to do subtraction for the very first time.  After giving them the introduction, you write "3 - 1 =" up on the board, then have each kid write their answer really big on a sheet of paper and hold it up.  Most kids hold up a sheet with the number "2" in it, but a few hold up a sheet with the number "4" on it.  You now have a snapshot of the whole class and know which students don&#8217;t quite have the concept.  TDD is kind of like this, but for you and your code.</p>
+<p>Imagine you&#8217;re teaching a class of kids how to do subtraction for the very first time.  After giving them the introduction, you write "3 - 1 = " up on the board, then have each kid write their answer on a sheet of paper and hold it up.  Most kids hold up a sheet with the number "2" in it, but a few hold up a sheet with the number "4" on it.  You now have a snapshot of the whole class and which students likely don&#8217;t quite understand the concept.  TDD is kind of like this, but for you and your code.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_test_pseudo_code_and_example">Test Pseudo-code and Example</h3>
 <div class="paragraph">
-<p>Our primary goal is to be able to write a basic.  A basic test looks something like like:</p>
+<p>Our primary goal is to write a basic test first.  A basic test looks something like like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -364,34 +364,53 @@ test(is, expect, msg);</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Imagine we have to write an <code>add</code> function, that takes two parameters and returns their sum.  Using the example above, what might such a test look like?</p>
+<p>Image we have to write an <code>add</code> function, that takes two parameters and returns their sum.  Using the example above, what might such a test look like?</p>
 </div>
 <div class="paragraph">
 <p>Well it could be like anyone of the following examples, and many others!</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>test( add(1,1), 2, '1+1 = 2');
-test( add(42,0), 22, '42+0 = 0');
-test( add(42,0), 22, 'positive and zero');
-test( add(3.14, 3.14), 6.28, 'pi to tau');
-test( add(-100, -50), -50, 'negative and negative');</pre>
+<pre>test( add(1,1), 2, '1+1 = 2' );
+test( add(42,0), 22, '42+0 = 0' );
+test( add(42,0), 22, 'positive and zero' );
+test( add(3.14, 3.14), 6.28, 'pi to tau' );
+test( add(-100, -50), -50, 'negative and negative' );</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you notice, I&#8217;ve made a call to a <code>test</code> function, but that function doesn&#8217;t exist - <em>yet!</em>  We&#8217;ll come back to this in just a moment.  First, we&#8217;re going to take a really quick detour into some terminology and styles.</p>
+<p>If you notice, I&#8217;ve made a call to a <code>test</code> function, but that function doesn&#8217;t exist - <em>yet!</em>  We&#8217;ll come back to this in just a moment, but first we&#8217;re going to take a really quick detour into some terminology and styles.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_tdd_frameworks_and_testing_types">TDD Frameworks and Testing Types</h3>
 <div class="paragraph">
-<p>First, lets get a high lvel overviwe of sme key concepts and terms.</p>
+<p>There are lots of TDD frameworks and services, including Jasmine, Mocha, Chai, Selenium, PhantomJS, Protractor, Nightwatch, Dalek, BrowserStack, SauceLabs, and Testingbot.</p>
+</div>
+<div class="paragraph">
+<p><em>Please don&#8217;t spend time trying to get these up and running or using these until</em>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You&#8217;re more comfortable with JS,</p>
+</li>
+<li>
+<p>You&#8217;re working with other people on a project, or</p>
+</li>
+<li>
+<p>You&#8217;re working on larger projects.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>At the end of this post, I&#8217;ve provided additional information on some of these frameworks and services.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_basic_concepts">Basic Concepts</h3>
 <div class="paragraph">
-<p>Different groups may have important nuances among their use of these terms.</p>
+<p>The following are some really common terms in the TDD realm that you should at least recognize.</p>
 </div>
 <div class="sect3">
 <h4 id="_test_types">Test Types</h4>
@@ -399,7 +418,7 @@ test( add(-100, -50), -50, 'negative and negative');</pre>
 <dl>
 <dt class="hdlist1">Unit Tests</dt>
 <dd>
-<p>Unit Tests test individual JavaScript functions.  <em>For this exercise, we&#8217;re going to be working exclusively with unit tests.</em></p>
+<p>Unit Tests test individual JavaScript functions.   <em>For this exercise, we&#8217;re going to be working exclusively with unit tests.</em></p>
 </dd>
 <dt class="hdlist1">Integration Tests</dt>
 <dd>
@@ -418,22 +437,19 @@ test( add(-100, -50), -50, 'negative and negative');</pre>
 <dl>
 <dt class="hdlist1">Assertion Styles</dt>
 <dd>
-<p>Assertion styles specify the <a href="http://chaijs.com/guide/styles/">lingo</a> that will be used to construct tests.  There are three primary styles: assert, expect, and should.</p>
+<p>Assertion styles simply specify the <a href="http://chaijs.com/guide/styles/">lingo</a> to be used in tests.  There are three primary styles: assert, expect, should.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>assert style test: <code>assert.equal( add(1,1), 2, '1+1 = 2' );</code></p>
+<p>assert style example <code>assert.equal( add(1,1), 2, '1+1 = 2' );</code></p>
 </li>
 <li>
-<p>expect style test: <code>expect.( add(1,1), '1+1 = 2' ).to.equal( 2 );</code></p>
+<p>expect style example <code>expect.( add(1,1), '1+1 = 2' ).to.equal( 2 );</code></p>
 </li>
 <li>
-<p>should style test: <code>add(1,1).should.equal( 2 );</code></p>
+<p>should style example <code>add(1,1).should.equal( 2 );</code></p>
 </li>
 </ul>
-</div>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p>We&#8217;re going to work up to a slightly different style, specifically <code>Test.assertEquals( add(1,1), 2, '1+1 = 2' );</code>.</p>
@@ -452,6 +468,9 @@ test( add(-100, -50), -50, 'negative and negative');</pre>
 </tr>
 </table>
 </div>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -466,7 +485,7 @@ test( add(-100, -50), -50, 'negative and negative');</pre>
 <p>Of course, once we write the code, we want our test to pass.  This is referred to as <em>green</em> (and if you think most frameworks will show you the result in green, you are correctomundo).  We now have reasonable confidence that our test and our code do what we told them to do.  Just beware - what you told them to do may not be what you actually want them to do.  As you code more, you&#8217;ll understand this caveat.</p>
 </div>
 <div class="paragraph">
-<p>Once you have the test and code working as stated, then you can edit your code to be more clear, more concise, more precise, etc.  This is known as "refactoring" the code.  One of the awesome things about TDD is that you can refactor your code with the confidence that <em>if you break functionality that has a test - your tests will fail, thereby alerting you that there is a problem</em>.</p>
+<p>Once you have the test and code working as stated, then you can edit your code to be more clear, more concise, more precise, etc.  This is known as "refactoring" the code.  One of the awesome results of TDD, is that you can refactor your code in the confidence that if you break anything <em>that you&#8217;ve written a test for</em>, you will be notified of what was broken by a failing test!</p>
 </div>
 </div>
 </div>
@@ -478,7 +497,7 @@ test( add(-100, -50), -50, 'negative and negative');</pre>
 <p>Okay, now for the fun part!</p>
 </div>
 <div class="paragraph">
-<p>We&#8217;re going to iterate through writing our own test framework.  It will of course be very simple, but by writing it yourself, you can (a) easily test your own functions without being dependent on a specific test framework, (b) customize it to your heart&#8217;s content, and (c) expand it as your needs grow.</p>
+<p>We&#8217;re going to iterate through writing our own test framework.  It will of course be very simple, but by writing it yourself, you can (a) easily test your own functions without being dependent on a specific test framework, (b) customize it to your hearts extent, and (c) expand it as your needs grow.</p>
 </div>
 <div class="sect2">
 <h3 id="_version_0_red">Version 0 - Red</h3>
@@ -506,7 +525,7 @@ test( add(-100, -50), -50, 'negative and negative');</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>We&#8217;re going to start with the test style from our pseudo-code above.</p>
+<p>We&#8217;re going to start with the test style from the pseudo-code above.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -563,7 +582,7 @@ Exception: ReferenceError: test is not defined
 <p>Now it&#8217;s time to go green.</p>
 </div>
 <div class="paragraph">
-<p>First, let&#8217;s review our error message.</p>
+<p>First, review our error message.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -574,7 +593,7 @@ Exception: ReferenceError: test is not defined
 </div>
 </div>
 <div class="paragraph">
-<p>The crux of the error is the "<code>test is not defined</code>" bit.  Knowing that, we&#8217;re going to start by defining test.  We could just do a <code>var test</code>, but <code>test</code> is going to be a function, so instead we&#8217;re going to do this:</p>
+<p>The crux of the error is the <code>test is not defined</code> bit.  Knowing that, we&#8217;re going to start by defining test.  We could just do a <code>var test</code>, but <code>test</code> is going to be a function, so instead we&#8217;re going to do this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -593,7 +612,7 @@ Exception: ReferenceError: test is not defined
 <p>Why might this be?</p>
 </div>
 <div class="paragraph">
-<p>Well, we call <code>test</code> twice, and presumably <code>test</code> ran twice, but <code>test</code> itself does nothing, nadda, nill!</p>
+<p>Well, we call <code>test</code> twice, and presumably <code>test</code> run twice, but <code>test</code> itself does nothing, nadda, nill.</p>
 </div>
 <div class="paragraph">
 <p>So let&#8217;s make <code>test</code> do something. How about outputting a simple message?</p>
@@ -606,7 +625,10 @@ Exception: ReferenceError: test is not defined
 </div>
 </div>
 <div class="paragraph">
-<p>If you run that, you should get your message logged to the console twice.  In other words, <code>test</code> is doing exactly what we tell it to at this point.</p>
+<p>If you run that, you should get back your message twice!</p>
+</div>
+<div class="paragraph">
+<p>In other words, <code>test</code> is doing exactly what we tell it to at this point.</p>
 </div>
 <div class="paragraph">
 <p>So, let&#8217;s tell it to compare an <code>is</code> with a <code>should</code> and log the result.</p>
@@ -619,10 +641,10 @@ Exception: ReferenceError: test is not defined
 </div>
 </div>
 <div class="paragraph">
-<p>If you run your code now, you should get one <em>true</em> and one <em>false</em> - that&#8217;s <em>almost</em> what we want.  In other words, we&#8217;re on the right track!  <em>Importantly, it&#8217;s close enough that you could actually use it just like this if you wanted or needed to do so!</em></p>
+<p>If you run your code now, you should get one <em>true</em> and one <em>false</em> - that&#8217;s <em>almost</em> exactly what we want.  In other words, we&#8217;re on the right track!  <em>It&#8217;s close enough that you could actually use it just like this if you wanted!</em></p>
 </div>
 <div class="paragraph">
-<p>But it&#8217;s much more clear to have an actual "pass" or "fail".  We can accomplish this several different ways.  For reasons that may become clear, I&#8217;m going to steer us toward an <code>if</code> approach.  So, let&#8217;s implement a basic <code>if</code> check and then log either "pass" or "fail".</p>
+<p>But it&#8217;s much more clear to have an actual "pass" or "fail".  We can accomplish this several different ways.  For reasons that may become clear, I&#8217;m going to steer us toward an <code>if</code> approach.  So, let&#8217;s implement a basic <code>if</code> check then log either "pass" or "fail".</p>
 </div>
 <div class="paragraph">
 <p>This is how I implemented my basic <code>if</code> check with the corresponding logs:</p>
@@ -642,11 +664,11 @@ Exception: ReferenceError: test is not defined
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If you aren&#8217;t familar with JS <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">comparison operators</a>, the triple equal is a "strict equality" operator.  It returns <code>true</code> only if the items being compared are <em>exactly</em> equal.  There are many other types of comparisons.  Most test frameworks will actually incorporate different types of equality and comparisons.  For this exercise, we&#8217;re only going to use strict equality.  But remember - <em>this is your library, so when we&#8217;re done feel free to add some additional comparisons!</em></td>
+<td>If you aren&#8217;t familar with JS <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">comparison operators</a>, the triple equal is a "strict equality" operator.  It returns <code>true</code> only if the items being compared are <em>exactly</em> equal.  There are many other types of comparisons.  Most test frameworks will actually incorporate different types of equality and comparisons.  For this exercise, we&#8217;re only going to use strict equality.  But remember - <em>this is your library, so when we&#8217;re done feel free to add some some additional comparisons!</em></td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>If you look closely, I added a <code>return</code> and didn&#8217;t use an <code>else</code>.  The <code>return</code> inside the <code>if</code> causes any passing test to exit at that point.  As I understand it, this improves performance –ever so slightly.  It is also a stylistic choice.</td>
+<td>If you look closely, I added a <code>return</code> and didn&#8217;t use an <code>else</code>.  The <code>return</code> inside the <code>if</code> causes any passing test to exit at that point.  As I understand it, this improves performance –ever so slightly–.  It is also a stylistic choice.</td>
 </tr>
 </table>
 </div>
@@ -723,7 +745,7 @@ expected "6.28" but got "3.14"</pre>
 <div class="sect3">
 <h4 id="_jazz_it_up_a_bit">Jazz it up a bit</h4>
 <div class="paragraph">
-<p>Let me show you a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console#Styling_console_output">cool thing</a> about most modern browsers – something that&#8217;s particularly relevant for our test&#8217;s output:</p>
+<p>Let me show you a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console#Styling_console_output">cool thing</a> about most modern browsers, that&#8217;s particularly relevant for our output:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -740,10 +762,10 @@ expected "6.28" but got "3.14"</pre>
 <p>Without running that code, what do you think is going to happen?</p>
 </div>
 <div class="paragraph">
-<p>If you guessed that it colors passing log messages green and failing log messages red - great guess!</p>
+<p>If you guessed that it colors passing logs green and failing logs red - great guess!</p>
 </div>
 <div class="paragraph">
-<p>If you wanted to leave your <code>test</code> function right here, it&#8217;s pretty dang useful as it is; <em>but</em> let&#8217;s bump it up just a notch! ;-)</p>
+<p>If you wanted to leave your <code>test</code> function right here, it&#8217;s pretty dang useful as it is; <em>but</em> we&#8217;re let&#8217;s bump it up just a notch! ;-)</p>
 </div>
 </div>
 </div>
@@ -753,7 +775,7 @@ expected "6.28" but got "3.14"</pre>
 <h2 id="_version_3_object_ifying_your_test">Version 3 - Object-ifying your test</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>I highly recommend working through <a href="http://www.codewars.com/kata/search/my-languages?q=&amp;beta=false&amp;order_by=rank_id+asc">Codewar&#8217;s code katas</a>.  One of the great things about the lower level katas is that most come with some visible tests – <em>BUT</em> – frequently there are important tests that aren&#8217;t visible, and as you move up through the <a href="http://www.codewars.com/about">ranks</a> many kata authors provide fewer and fewer tests.  So, it&#8217;s a great place to get in the habit of writing your own tests!  Codewars has their own <a href="http://www.codewars.com/docs/js-slash-coffeescript-test-reference">test framework</a>.  If you check out their documentation, you&#8217;ll notice that our function is most like their <code>Test.assertEquals</code>.</p>
+<p>I highly recommend working through <a href="http://www.codewars.com/kata/search/my-languages?q=&amp;beta=false&amp;order_by=rank_id+asc">Codewar&#8217;s code katas</a>.  One of the great things about the lower level katas is that most come with some visible tests.  <em>BUT</em> frequently there are important tests that aren&#8217;t visible, and as you move up through the <a href="http://www.codewars.com/about">ranks</a> kata authors provide fewer and fewer tests.  So, it&#8217;s a great place to get in the habit of writing your own tests!  Codewars has their own <a href="http://www.codewars.com/docs/js-slash-coffeescript-test-reference">test framework</a>.  If you check out their documentation, you&#8217;ll notice that our function is most like their <code>Test.assertEquals</code>.</p>
 </div>
 <div class="paragraph">
 <p>Don&#8217;t fret if that function call looks a bit strange.  The <code>Test</code> part indicates that it is an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype#Examples">object functioning as a "pseudo-class"</a> and the <code>.assertEquals</code> is simply a function within that pseudo-class.</p>
@@ -783,7 +805,9 @@ Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
 <div class="listingblock">
 <div class="content">
 <pre>// my actual Test object
-var Test = function() {};</pre>
+var Test = function() {
+
+};</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -821,17 +845,17 @@ Test( 3.14, 6.28, 'my failing condition');</pre>
 <p>So why were you able to run <code>test</code> after your test calls, but you couldn&#8217;t run <code>Test</code> after your test calls?  Well, that&#8217;s a really awesome question!  I&#8217;m going to say that one more time just for emphasis - <em>that&#8217;s a really awesome question!</em></p>
 </div>
 <div class="paragraph">
-<p>Unfortunately, the answer is kind of a rabbit hole –a great rabbit hole– but a rabbit hole nonetheless.  Since I don&#8217;t want to go down that rabbit hole in this post, I will instead highly recommend that you <a href="https://metasean.github.io/blog/2016/04/02/J-S-Learners-Fieldguide.html#_dive_deep">Dive Deep</a> into JavaScript sometime soon.</p>
+<p>Unfortunately, the answer is kind of a rabbit hole –a great rabbit hole– but a rabbit hole nonetheless.  Since I don&#8217;t want to go down that rabbit hole in this article, I going to highly recommend that you <a href="https://metasean.github.io/blog/2016/04/02/J-S-Learners-Fieldguide.html#_dive_deep">Dive Deep</a> into JavaScript sometime soon, but preferably after you&#8217;re done working through this post.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>When you re-run your scratchpad, you should experience more than a little bit of déjà vu as you read the "<code>Test.assertEquals is not defined</code>" error.  But before you despair too much, note that error message actually includes the <code>assertEquals</code> part, which means it&#8217;s really a different error. ;-)</p>
+<p>When you re-run your scratchpad, you should experience more than a little bit of déjà vu as you read the "<code>Test.assertEquals is not defined</code>" error.  But before you despair too much, note that error actually includes the <code>assertEquals</code> part, which means it&#8217;s actually a different error.</p>
 </div>
 <div class="paragraph">
-<p>Before we address that, let&#8217;s play around for just a bit.  Specifically, add the following code after your empty <code>Test</code> function and then run your code.</p>
+<p>Before we address that, let&#8217;s play around for just a bit.  Specifically, add the following after your empty <code>Test</code> function and then run your code.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -843,7 +867,7 @@ Test.yo();</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Before I go any further, try to work through what you think the code is doing, and then try to modify your <code>test</code> function so that your tests work.</p>
+<p>Before I go any further, try to work through what you think the code is, and then try to modify your <code>test</code> function so that your tests work.</p>
 </div>
 <div class="paragraph">
 <p>If your code doesn&#8217;t work and you can&#8217;t figure out the next step based on the <code>Test.yo</code> code, then go ahead and review my final, working code:</p>
@@ -868,7 +892,7 @@ Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>And that&#8217;s mostly it.  At this point, you can now write lots of strict equality tests and get useful information back.  Even better, you should be able to:</p>
+<p>That&#8217;s mostly it.  You can now write lot&#8217;s of strict equality tests and get useful information back.  Even better, you should be able to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -876,7 +900,7 @@ Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
 <p>Write a super quick, super simple test function in JavaScript!</p>
 </li>
 <li>
-<p>Modify your version of <code>Test.assertEquals</code>!</p>
+<p>Modify your own version of this strict equality test!</p>
 </li>
 <li>
 <p>Add new tests to your <code>Test</code> object to your heart&#8217;s content!</p>
@@ -884,7 +908,7 @@ Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Consider this as my gift to you.  Please enjoy doing awesome magic with your very first code wizard&#8217;s wand!</strong></p>
+<p><strong>Consider this —your very first code wizard&#8217;s wand— as my gift to you.  Please enjoy doing awesome magic with it!</strong></p>
 </div>
 </div>
 </div>
@@ -897,7 +921,7 @@ Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
 <p><em>As I&#8217;ve mentioned, the library we just wrote only evaluates strict equality.</em></p>
 </div>
 <div class="paragraph">
-<p>Not only are there other things that can be evaluated (e.g. greater than, less than, includes, etc.), strict equality does <strong><em>not</em></strong> consider different arrays or objects to be "equal", even if they have exactly the same value!  You probably want to incorporate some type of array and object comparison into your own library at some point. <em>If that does not make sense - it&#8217;s not the right time for you to do it - and that&#8217;s perfectly fine!</em>  When you start working with arrays and objects, just remember that this test framework won&#8217;t do what you want.  But also remember that you have the power to add that functionality to your test framework!  (And it&#8217;s a wonderful exercise at that point! ;-) )</p>
+<p>Not only are there other things that can be evaluated (e.g. greater than, less than, includes, etc.), strict equality does <strong><em>not</em></strong> consider different arrays or objects to be "equal", even if they are exact same value!  You probably want to incorporate some type of array and object comparison into your own library at some point. <em>If that does not make sense - it&#8217;s not the right time for you to do it - and that&#8217;s perfectly fine!</em>  When you start working with arrays and objects, just remember that this test framework won&#8217;t do what you want.  But also remember that you have the power to add that functionality to your test framework!  (And it&#8217;s a wonderful exercise at that point! ;-) )</p>
 </div>
 </div>
 <div class="sect2">
@@ -930,7 +954,7 @@ Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
 <dd>
 <p>These are all true end-to-end test frameworks.  Protractor is strongly associated with Angular; I haven&#8217;t used it, but have heard good things.  I&#8217;ve played a bit with both Intern and Nightwatch.js and have a slight preference for Nightwatch.js.</p>
 </dd>
-<dt class="hdlist1"><a href="https://www.browserstack.com/">BrowserStack</a>, <a href="https://saucelabs.com/">Sauce Labs</a>, and <a href="https://testingbot.com/">Testingbot</a></dt>
+<dt class="hdlist1"><a href="https://www.browserstack.com/">BrowserStack</a>, <a href="https://saucelabs.com/">SauceLabs</a>, and <a href="https://testingbot.com/">Testingbot</a></dt>
 <dd>
 <p>These are all cross browser testing services.  Basically, they are virtual machine farms, that allow you to run your end-to-end tests against a wide range of operating systems and browser versions.  I&#8217;ve have not tried Testingbot.  I have a slight preference for BrowserStack.</p>
 </dd>
