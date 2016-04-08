@@ -126,7 +126,7 @@ We're going to work up to a slightly different style, specifically `Test.assertE
 +
 [NOTE]
 ====
-The important thing to notice at this point is that while there are different styles, they all include the same three elements: `is`, `should`, and `msg`.  Everything else is just "semantic sugar".
+The important thing to notice is that while there are different styles, they all include the same three elements: `is`, `should`, and `msg`.  Everything else is just "semantic sugar".
 ====
 
 ### Red, Green, Refactor
