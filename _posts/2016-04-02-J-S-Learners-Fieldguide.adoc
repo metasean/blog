@@ -1,6 +1,8 @@
 JS Learners' Fieldguide
 =======================
 :hp-tags: JavaScript, HTML, CSS, Resources, Recommendations, Learners
+:revised_at: 2016-04-10
+:Revision: 2016-04-10
 
 :toc:
 
@@ -131,7 +133,7 @@ https://c9.io[Cloud9]:: If I'm working on a project with someone else and we wan
 
 ### CSS
 
-While HTML and CSS are not JavaScript, if you're using JavaScript then there's a good chance you'll also need to use HTML and CSS.  CSS is an interesting markup language and is pretty powerful in its own right.  If you want to have some fun learning about CSS3 or FlexBox (a subset of CSS3), than I highly recommend you checkout the https://flukeout.github.io/[CSS Diner] and http://flexboxfroggy.com/[Flexbox Froggy].
+While HTML and CSS are not JavaScript, if you're using JavaScript then there's a good chance you'll also need to use HTML and CSS.  CSS is an interesting markup language and is pretty powerful in its own right.  If you want to have some fun learning about CSS3 or FlexBox (a subset of CSS3), than I highly recommend you checkout the https://flukeout.github.io/[CSS Diner] and http://flexboxfroggy.com/[Flexbox Froggy].  (I recently ran across http://www.flexboxdefense.com/[Flexbox Defense] which looks like yet another a game for learning flexbox.)
 
 ### TDD
 
