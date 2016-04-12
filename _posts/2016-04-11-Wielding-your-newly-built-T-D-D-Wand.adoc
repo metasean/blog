@@ -1,0 +1,6 @@
+Wielding your newly built TDD Wand
+==================================
+:hp-tags: JavaScript, TDD, BDD, Recommendations, Learners
+
+:toc:
+
