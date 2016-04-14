@@ -16,7 +16,7 @@ You do need to be able to use your browser's web console and scratchpad.  If you
 JavaScript::
 you need to be minimally familiar with the following concepts.  
 
-[code,javascript]
+[source,javascript]
 ----
 // comments <1>
 
@@ -76,7 +76,7 @@ Image we have to write an `add` function, that takes two parameters and returns 
 
 Well it could be like anyone of the following examples, and many others!
 
-[code,javascript]
+[source,javascript]
 ----
 test( add(1,1), 2, '1+1 = 2' );
 test( add(42,0), 22, '42+0 = 0' );
@@ -174,21 +174,21 @@ test( is, should, msg );
 
 In our first test, we're going to ensure that the same  value results in a passing test. 
 
-[code,javascript]
+[source,javascript]
 ----
 test( 42, 42, 'a passing condition' );
 ----
 
 In our second test, we're going to ensure that different values result in a failing test.  
 
-[code,javascript]
+[source,javascript]
 ----
 test( 3.14, 6.28, 'a failing condition' );
 ----
 
 Open your browser's scratchpad and enter your meta-tests.  Your final version 0 meta-test should look something like:
 
-[code,javascript]
+[source,javascript]
 ----
 // my meta-tests
 test( 42, 42, 'my passing condition' );
@@ -214,7 +214,7 @@ Now it's time to go green.
 
 First, review our error message.
 
-[code,bash]
+[source,bash]
 ----
 /*
 Exception: ReferenceError: test is not defined
@@ -224,7 +224,7 @@ Exception: ReferenceError: test is not defined
 
 The crux of the error is the `test is not defined` bit.  Knowing that, we're going to start by defining test.  We could just do a `var test`, but `test` is going to be a function, so instead we're going to do this:
 
-[code,javascript]
+[source,javascript]
 ----
 function test() {
 	
@@ -241,7 +241,7 @@ Well, we call `test` twice, and presumably `test` run twice, but `test` itself d
 
 So let's make `test` do something. How about outputting a simple message?
 
-[code,javascript]
+[source,javascript]
 ----
 function test() {
   console.log('is test doing what we tell it to do');
@@ -254,7 +254,7 @@ In other words, `test` is doing exactly what we tell it to at this point.
 
 So, let's tell it to compare an `is` with a `should` and log the result. 
 
-[code,javascript]
+[source,javascript]
 ----
 function test(is, should) {
   console.log (is === should);
@@ -267,7 +267,7 @@ But it's much more clear to have an actual "pass" or "fail".  We can accomplish 
 
 This is how I implemented my basic `if` check with the corresponding logs:
 
-[code,javascript]
+[source,javascript]
 ---- 
 function test(is, should) {
   if (is === should) { <1>
@@ -293,7 +293,7 @@ First, let's add our test's message to the output, but only if we fail.  We can 
 
 My code looks like this now:
 
-[code,javascript]
+[source,javascript]
 ----
 function test(is, should, msg) {
   if (is === should) {
@@ -306,7 +306,7 @@ function test(is, should, msg) {
 
 Don't forget to run your code and make sure you get your expected output!  For me, that's:
 
-[code,bash]
+[source,bash]
 ----
 pass
 
@@ -319,7 +319,7 @@ If a test fails, it's also useful to know what we got compared to what we expect
 
 My version looks like this:
 
-[code,javascript]
+[source,javascript]
 ----
 function test(is, should, msg) {
   if (is === should) {
@@ -332,7 +332,7 @@ function test(is, should, msg) {
 
 Which outputs like this:
 
-[code,bash]
+[source,bash]
 ----
 pass
 
@@ -344,7 +344,7 @@ expected "6.28" but got "3.14"
 
 Let me show you a https://developer.mozilla.org/en-US/docs/Web/API/Console#Styling_console_output[cool thing] about most modern browsers, that's particularly relevant for our output:
 
-[code,javascript]
+[source,javascript]
 ----
 function test(is, should, msg) {
   if (is === should) {
@@ -369,7 +369,7 @@ Don't fret if that function call looks a bit strange.  The `Test` part indicates
 
 But, before we go any further, let's change our meta-tests to use our new function's target syntax.  We'll do that by changing `test` to `Test.assertEquals`:
 
-[code,javascript]
+[source,javascript]
 ----
 // my meta-tests
 Test.assertEquals( 42, 42, 'my passing condition');
@@ -384,7 +384,7 @@ This time, we are going to use a `var`.  Specifically, we're going to create a n
 
 My code looks like this now:
 
-[code,javascript]
+[source,javascript]
 ----
 // my actual Test object
 var Test = function() {
@@ -396,7 +396,7 @@ Go ahead and run your code - I'll wait ;-)
 
 If your test calls come _before_ your new `Test` function, then you should have gotten the same "`Test is not defined`" error!  But do not sweat this - just move your test calls after your new function, so that your code looks something like this:
 
-[code,javascript]
+[source,javascript]
 ----
 // my actual Test class
 var Test = function() {};
@@ -426,7 +426,7 @@ When you re-run your scratchpad, you should experience more than a little bit of
 Before we address that, let's play around for just a bit.  Specifically, add the following after your empty `Test` function and then run your code.
 
 
-[code,javascript]
+[source,javascript]
 ----
 Test.yo = function() { 
   console.log("We're about to rock our Tests!");
@@ -439,7 +439,7 @@ Before I go any further, try to work through what you think the code is, and the
 
 If your code doesn't work and you can't figure out the next step based on the `Test.yo` code, then go ahead and review my final, working code:
 
-[code,javascript]
+[source,javascript]
 ----
 // my actual Test class
 var Test = function() {};
