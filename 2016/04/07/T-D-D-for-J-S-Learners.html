@@ -80,7 +80,7 @@
     <meta property="og:description" content="This post starts with a lot of useful background information, and then walks you through implementing your own basic test framework.  You should read through the background and implement your own test framework - but if you&amp;#8217;re just..." />
     <meta property="og:url" content="https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html" />
     <meta property="article:published_time" content="2016-04-07T06:00:00.000Z" />
-    <meta property="article:modified_time" content="2016-04-14T03:27:38.664Z" />
+    <meta property="article:modified_time" content="2016-04-14T03:32:21.625Z" />
     <meta property="article:tag" content="JavaScript" />
     <meta property="article:tag" content="TDD" />
     <meta property="article:tag" content="BDD" />
@@ -107,7 +107,7 @@
     "headline": "TDD for JS Learners",
     "url": "https://MetaSean.github.io/blog/2016/04/07/T-D-D-for-J-S-Learners.html",
     "datePublished": "2016-04-07T06:00:00.000Z",
-    "dateModified": "2016-04-14T03:27:38.664Z",
+    "dateModified": "2016-04-14T03:32:21.625Z",
     "keywords": "JavaScript,  TDD,  BDD,  Recommendations,  Learners",
     "description": "This post starts with a lot of useful background information, and then walks you through implementing your own basic test framework.  You should read through the background and implement your own test framework - but if you&amp;#8217;re just..."
 }
@@ -343,7 +343,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>// comments <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">// comments <i class="conum" data-value="1"></i><b>(1)</b>
 
 var variable = 'defined'; // var and the idea of variables <i class="conum" data-value="2"></i><b>(2)</b>
 
@@ -354,7 +354,7 @@ function recipe (parameters) {
 		and function parameters <i class="conum" data-value="4"></i><b>(4)</b>
 	*/
 	return true; // how to return values from a function <i class="conum" data-value="5"></i><b>(5)</b>
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -426,11 +426,11 @@ test(is, expect, msg);</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>test( add(1,1), 2, '1+1 = 2' );
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">test( add(1,1), 2, '1+1 = 2' );
 test( add(42,0), 22, '42+0 = 0' );
 test( add(42,0), 22, 'positive and zero' );
 test( add(3.14, 3.14), 6.28, 'pi to tau' );
-test( add(-100, -50), -50, 'negative and negative' );</pre>
+test( add(-100, -50), -50, 'negative and negative' );</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -592,7 +592,7 @@ test( add(-100, -50), -50, 'negative and negative' );</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>test( 42, 42, 'a passing condition' );</pre>
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">test( 42, 42, 'a passing condition' );</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -600,7 +600,7 @@ test( add(-100, -50), -50, 'negative and negative' );</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>test( 3.14, 6.28, 'a failing condition' );</pre>
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">test( 3.14, 6.28, 'a failing condition' );</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -608,9 +608,9 @@ test( add(-100, -50), -50, 'negative and negative' );</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>// my meta-tests
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">// my meta-tests
 test( 42, 42, 'my passing condition' );
-test( 3.14, 6.28, 'my failing condition' );</pre>
+test( 3.14, 6.28, 'my failing condition' );</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -641,10 +641,10 @@ Exception: ReferenceError: test is not defined
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>/*
+<pre class="highlight"><code class="language-bash" data-lang="bash">/*
 Exception: ReferenceError: test is not defined
 @Scratchpad/4:2:1
-*/</pre>
+*/</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -652,9 +652,9 @@ Exception: ReferenceError: test is not defined
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>function test() {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">function test() {
 
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -674,9 +674,9 @@ Exception: ReferenceError: test is not defined
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>function test() {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">function test() {
   console.log('is test doing what we tell it to do');
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -690,9 +690,9 @@ Exception: ReferenceError: test is not defined
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>function test(is, should) {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">function test(is, should) {
   console.log (is === should);
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -706,13 +706,13 @@ Exception: ReferenceError: test is not defined
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>function test(is, should) {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">function test(is, should) {
   if (is === should) { <i class="conum" data-value="1"></i><b>(1)</b>
     console.log('pass');
     return; <i class="conum" data-value="2"></i><b>(2)</b>
   }
   console.log('fail');
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -746,13 +746,13 @@ Exception: ReferenceError: test is not defined
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>function test(is, should, msg) {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">function test(is, should, msg) {
   if (is === should) {
     console.log('\npass');
     return;
   }
   console.log('\nFAIL: ' + msg);
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -760,9 +760,9 @@ Exception: ReferenceError: test is not defined
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>pass
+<pre class="highlight"><code class="language-bash" data-lang="bash">pass
 
-FAIL: my failing condition</pre>
+FAIL: my failing condition</code></pre>
 </div>
 </div>
 </div>
@@ -776,13 +776,13 @@ FAIL: my failing condition</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>function test(is, should, msg) {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">function test(is, should, msg) {
   if (is === should) {
     console.log('\npass');
     return;
   }
   console.log('\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"');
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -790,10 +790,10 @@ FAIL: my failing condition</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>pass
+<pre class="highlight"><code class="language-bash" data-lang="bash">pass
 
 FAIL: my failing condition
-expected "6.28" but got "3.14"</pre>
+expected "6.28" but got "3.14"</code></pre>
 </div>
 </div>
 </div>
@@ -804,13 +804,13 @@ expected "6.28" but got "3.14"</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>function test(is, should, msg) {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">function test(is, should, msg) {
   if (is === should) {
     console.log('%c\npass', 'color: green');
     return;
   }
   console.log('%c\nFAIL: ' + msg + '\nexpected "' + should + '" but got "' + is + '"', 'color: red');
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -840,9 +840,9 @@ expected "6.28" but got "3.14"</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>// my meta-tests
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">// my meta-tests
 Test.assertEquals( 42, 42, 'my passing condition');
-Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
+Test.assertEquals( 3.14, 6.28, 'my failing condition');</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -859,10 +859,10 @@ Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>// my actual Test object
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">// my actual Test object
 var Test = function() {
 
-};</pre>
+};</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -873,7 +873,7 @@ var Test = function() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>// my actual Test class
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">// my actual Test class
 var Test = function() {};
 
 function test(is, should, msg) {
@@ -886,7 +886,7 @@ function test(is, should, msg) {
 
 // my meta-tests
 Test( 42, 42, 'my passing condition');
-Test( 3.14, 6.28, 'my failing condition');</pre>
+Test( 3.14, 6.28, 'my failing condition');</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -914,11 +914,11 @@ Test( 3.14, 6.28, 'my failing condition');</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Test.yo = function() {
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">Test.yo = function() {
   console.log("We're about to rock our Tests!");
 };
 
-Test.yo();</pre>
+Test.yo();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -929,7 +929,7 @@ Test.yo();</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>// my actual Test class
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">// my actual Test class
 var Test = function() {};
 
 // my actual assertEquals Test method
@@ -943,7 +943,7 @@ Test.assertEquals = function(is, should, msg) {
 
 // my meta-tests
 Test.assertEquals( 42, 42, 'my passing condition');
-Test.assertEquals( 3.14, 6.28, 'my failing condition');</pre>
+Test.assertEquals( 3.14, 6.28, 'my failing condition');</code></pre>
 </div>
 </div>
 <div class="paragraph">
