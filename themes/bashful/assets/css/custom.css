@@ -2,3 +2,19 @@
 * Custom CSS by @mgreau
 */
 .post-cover-image{ box-shadow: 3px 3px 10px 5px #8B8F90; margin-top: 10px;}
+
+
+/*
+* Some more Custom CSS by @MetaSean
+* (some is also embedded in main.min.css)
+*/
+i.fa svg.codewars {
+  margin-left: -0.2em;
+}
+
+i.fa svg.jsbin {
+  margin-left: -0.2em;
+  margin-right: 0.2em;
+  max-height: 21px;
+  vertical-align: middle;
+}
