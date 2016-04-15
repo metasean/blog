@@ -8,8 +8,12 @@
 * Some more Custom CSS by @MetaSean
 * (some is also embedded in main.min.css)
 */
-i.fa {
+i.fa.svg {
   margin-right: -0.05em;
+}
+
+i.fa.svg.codewars {
+  margin-right: -0.1em;
 }
 
 i.fa svg {
