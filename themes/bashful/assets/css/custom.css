@@ -24,3 +24,8 @@ i.fa svg.jsbin {
   max-height: 21px;
   vertical-align: middle;
 }
+
+li.post-item-meta-item time,
+li.post-meta-item time {
+  display: none; /* TODO: make display actual datetime */
+}
