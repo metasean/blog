@@ -136,7 +136,7 @@ While HTML and CSS are not JavaScript, if you're using JavaScript then there's a
 
 ### TDD
 
-Test-Driven Development is a wonderful thing, but as a novice it can be overwhelming.  I encourage Learners' to start practicing TDD when they start working through http://codekata.com/[CodeKata].  It has it's own flavor of TDD, but the principals will carry over to other TDD libraries.  Writing your own tests for CodeKatas helps you work through the principals of TDD.  When you think you might be ready to explore TDD, check out my post link:07/T-D-D-for-J-S-Learners.html[TDD for JS Learners].
+Test-Driven Development is a wonderful thing, but as a novice it can be overwhelming.  I encourage Learners' to start practicing TDD when they start working through http://codekata.com/[CodeKata].  It has it's own flavor of TDD, but the principals will carry over to other TDD libraries.  Writing your own tests for CodeKatas helps you work through the principals of TDD.  When you think you might be ready to explore TDD, check out my post link:../07/T-D-D-for-J-S-Learners.html[TDD for JS Learners].
 
 
 
