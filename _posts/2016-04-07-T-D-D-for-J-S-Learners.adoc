@@ -197,6 +197,7 @@ test( 3.14, 6.28, 'my failing condition' );
 
 With your tests in your scratchpad, go ahead and run it.  You should get something to the effect of:
 
+[source,bash]
 ----
 /*
 Exception: ReferenceError: test is not defined
@@ -237,7 +238,7 @@ I got nothing at all.  No error, no console.log messages, nothing, nadda, nill.
 
 Why might this be?
 
-Well, we call `test` twice, and presumably `test` run twice, but `test` itself does nothing, nadda, nill.  
+Well, we call `test` twice, and presumably `test` ran twice, but `test` itself does nothing, nadda, nill.  
 
 So let's make `test` do something. How about outputting a simple message?
 
