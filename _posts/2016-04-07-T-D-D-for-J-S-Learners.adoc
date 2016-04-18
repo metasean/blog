@@ -360,7 +360,7 @@ Without running that code, what do you think is going to happen?
 
 If you guessed that it colors passing logs green and failing logs red - great guess!
 
-If you wanted to leave your `test` function right here, it's pretty dang useful as it is; _but_ we're let's bump it up just a notch! ;-)
+If you wanted to leave your `test` function right here, it's pretty dang useful as it is; _but_ let's bump it up just a notch! ;-)
 
 ## Version 3 - Object-ifying your test
 
