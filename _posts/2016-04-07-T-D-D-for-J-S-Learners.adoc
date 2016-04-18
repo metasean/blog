@@ -25,8 +25,8 @@ var variable = 'defined'; // var and the idea of variables <2>
 function recipe (parameters) {
 	/* functions, 
 		specifically:
-		function declaration <3>
-		and function parameters <4>
+		function declaration // <3>
+		and function parameters // <4>
 	*/
 	return true; // how to return values from a function <5>
 }
@@ -271,9 +271,9 @@ This is how I implemented my basic `if` check with the corresponding logs:
 [source,javascript]
 ---- 
 function test(is, should) {
-  if (is === should) { <1>
+  if (is === should) { // <1>
     console.log('pass');
-    return; <2>
+    return; // <2>
   }
   console.log('fail');
 }
