@@ -1,0 +1,20 @@
+Web Console methods and styling references
+==========================================
+v0.1, 2017-03-16: Initial content
+:hp-tags: JavaScript, browsers, HTML, CSS, Resources 
+:toc:
+
+
+
+- MDN (should be browser agnostic unless stated otherwise)
+ *  https://developer.mozilla.org/en-US/docs/Web/API/console
+
+- Firefox 
+ * https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Console_messages
+ * https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Rich_output
+
+- Chrome
+ * https://developers.google.com/web/tools/chrome-devtools/console/console-reference
+
+- Safari
+ * https://developer.apple.com/library/content/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Console/Console.html
